@@ -8,8 +8,10 @@ class_name Player
 @export var speed = 700
 @export var grav_jump_delay = 0.25
 @export var double_jump = false
+@export var zoom_factor = 0.05
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var camera  : Camera2D = $Camera2D
 
 var active = true
 var grav_jump_timeout = 0.0
@@ -51,6 +53,12 @@ func _process(delta: float) -> void:
 	velocity.x = direction * speed
 	if backlash_X_force != 0: 
 		velocity.x = velocity.x * 0.25 + backlash_X_force
+	
+	# camera zoom
+		if Input.is_action_pressed("ZoomIn"):
+			camera.set_zoom(camera.get_zoom() * zoom_factor * delta)
+		if Input.is_action_pressed("ZoomOut"):
+			camera.set_zoom(camera.get_zoom() * -zoom_factor * delta)
 	
 	# animation
 	update_animations(direction)
