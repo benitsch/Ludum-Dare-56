@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://yrgq0yh58ulc"]
+
+[ext_resource type="TileSet" uid="uid://cjvrqyg1xd5rk" path="res://DevArt/Terrain (64x64).png" id="1_ynxui"]
+
+[node name="SampleTilemap" type="TileMap"]
+tile_set = ExtResource("1_ynxui")
+rendering_quadrant_size = 64
+format = 2
