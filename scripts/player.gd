@@ -39,6 +39,7 @@ func _process(delta):
 	if active:
 		if Input.is_action_pressed("jump"):
 			if coyote_time > 0.0:
+				coyote_time = 0.0
 				jump(jump_force)
 				grav_jump_timeout = grav_jump_delay
 			elif is_on_floor() == false && can_double_jump == true && allowed_to_double_jump == true:
