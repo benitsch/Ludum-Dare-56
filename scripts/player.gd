@@ -18,7 +18,7 @@ var allowed_to_double_jump = false
 var backlash_X_force = 0.0
 var coyote_time = 0.0
 
-func _process(delta):
+func _process(delta: float) -> void:
 	if grav_jump_timeout > 0:
 		grav_jump_timeout -= delta
 	
@@ -29,10 +29,6 @@ func _process(delta):
 			allowed_to_double_jump = false
 	elif coyote_time > 0.0:
 		coyote_time -= delta
-	
-	# gavity
-	if is_on_floor() == false && grav_jump_timeout <= 0.0:
-		velocity.y += gravity * delta
 	
 	# movment
 	var direction = 0
@@ -51,21 +47,27 @@ func _process(delta):
 			allowed_to_double_jump = true
 		
 		direction = Input.get_axis("move_left","move_right")
-		
-	velocity.x = direction * speed + backlash_X_force
-	if abs(backlash_X_force) > 0.01: backlash_X_force *= 0.75
-	elif backlash_X_force != 0.0: backlash_X_force = 0.0
 	
-	move_and_slide()
+	velocity.x = direction * speed
+	if backlash_X_force != 0: 
+		velocity.x = velocity.x * 0.25 + backlash_X_force
 	
 	# animation
 	update_animations(direction)
 
+func _physics_process(delta: float) -> void:	
+	# gavity
+	if is_on_floor() == false && grav_jump_timeout <= 0.0:
+		velocity.y += gravity * delta
+	
+	if abs(backlash_X_force) > 100: backlash_X_force *= 0.75
+	elif backlash_X_force != 0.0: backlash_X_force = 0.0
+	
+	move_and_slide()
 
 func jump(force):
 	velocity.y = -force
 	AudioPlayer.play_sfx("jump")
-
 
 func update_animations(direction):
 	# set corret player sprite direction
@@ -88,3 +90,4 @@ func update_animations(direction):
 func _on_player_hit_area_hit_on_enemy(backlash: Vector2, dmg: float) -> void:
 	velocity.y = backlash.y * backlash_force
 	backlash_X_force += backlash.x * backlash_force
+	if backlash_force != 0.0: velocity.x = 0.0
