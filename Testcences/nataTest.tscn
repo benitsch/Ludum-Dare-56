@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://2ir574xuagab" path="res://scenes/player.tscn" id="1_4710u"]
 [ext_resource type="Texture2D" uid="uid://d1u8wew1kyh2i" path="res://DevArt/Square.png" id="2_7ljt7"]
-[ext_resource type="PackedScene" uid="uid://c6hr8qmchsogj" path="res://scenes/tilemap_.tscn" id="3_hmjen"]
+[ext_resource type="PackedScene" uid="uid://c6hr8qmchsogj" path="res://scenes/tilemap_layer.tscn" id="3_hmjen"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujbt2"]
 size = Vector2(500, 500.001)
@@ -10,7 +10,8 @@ size = Vector2(500, 500.001)
 [node name="NataTest" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_4710u")]
-position = Vector2(576, 63)
+position = Vector2(633, -1734)
+double_jump = true
 
 [node name="testground" type="StaticBody2D" parent="."]
 visible = false
@@ -28,4 +29,4 @@ visible = false
 shape = SubResource("RectangleShape2D_ujbt2")
 
 [node name="Layer1" parent="." instance=ExtResource("3_hmjen")]
-tile_map_data = PackedByteArray("AAABAAEAAAABAAEAAAABAAIAAAAGAAEAAAABAAMAAAACAAIAAAACAAEAAAACAAEAAAACAAIAAAACAAIAAAACAAMAAAACAAIAAAADAAEAAAADAAEAAAADAAIAAAAFAAEAAAADAAMAAAACAAIAAAACAAQAAAACAAMAAAADAAQAAAACAAMAAAAEAAIAAAADAAEAAAAEAAMAAAADAAIAAAAEAAQAAAADAAMAAAAAAAIAAAABAAEAAAAAAAMAAAABAAIAAAAAAAQAAAABAAMAAAABAAQAAAACAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAAP3/AAABAAEAAAAAAP7/AAABAAIAAAAAAP//AAABAAMAAAABAPz/AAABAAEAAAABAP3/AAAGAAEAAAABAP7/AAACAAIAAAABAP//AAACAAMAAAACAPz/AAACAAEAAAACAP3/AAACAAIAAAACAP7/AAACAAIAAAACAP//AAACAAMAAAADAPz/AAADAAEAAAADAP3/AAAFAAEAAAADAP7/AAACAAIAAAADAP//AAACAAMAAAAEAP3/AAADAAEAAAAEAP7/AAADAAIAAAAEAP//AAADAAMAAAA=")
