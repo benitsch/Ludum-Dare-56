@@ -1,8 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://yrgq0yh58ulc"]
+[gd_scene load_steps=4 format=3 uid="uid://yrgq0yh58ulc"]
 
-[ext_resource type="TileSet" uid="uid://cjvrqyg1xd5rk" path="res://DevArt/Terrain (64x64).png" id="1_ynxui"]
+[ext_resource type="Texture2D" uid="uid://donfrdihpabyx" path="res://DevArt/Tileset01.png" id="1_r77g5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gx0nj"]
+texture = ExtResource("1_r77g5")
+texture_region_size = Vector2i(64, 64)
+1:1/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+3:2/0 = 0
+3:1/0 = 0
+1:2/0 = 0
+1:3/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+5:2/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8ik4l"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_gx0nj")
 
 [node name="SampleTilemap" type="TileMap"]
-tile_set = ExtResource("1_ynxui")
+tile_set = SubResource("TileSet_8ik4l")
 rendering_quadrant_size = 64
 format = 2
