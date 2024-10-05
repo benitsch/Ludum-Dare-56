@@ -51,8 +51,10 @@ func _process(delta: float) -> void:
 		direction = Input.get_axis("move_left","move_right")
 	
 	velocity.x = direction * speed
-	if backlash_X_force != 0: 
-		velocity.x = velocity.x * 0.25 + backlash_X_force
+	if backlash_X_force != 0:
+		if (velocity.x < 0.0 && backlash_X_force > 0.0) || (velocity.x > 0.0 && backlash_force < 0.0): 
+			velocity.x = velocity.x * 0.25
+		velocity.x += backlash_X_force
 	
 	# camera zoom
 		if Input.is_action_pressed("ZoomIn"):

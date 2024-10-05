@@ -38,5 +38,7 @@ func _process(delta):
 	animator.play("fade")
 
 func _on_hit_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Enemy"):
-		hit_on_enemy.emit(backlash, attack_dmg)
+	if body.is_in_group("Enemy"): hit_on_enemy.emit(backlash, attack_dmg)
+
+func _on_hit_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Enemy"): hit_on_enemy.emit(backlash, attack_dmg)
