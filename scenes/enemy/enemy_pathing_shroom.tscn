@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvu7khddbfd13"]
 
 [ext_resource type="Script" path="res://scripts/enemy_pathing.gd" id="1_hwb2d"]
-[ext_resource type="PackedScene" uid="uid://d1lcam3au7yad" path="res://scenes/enemy/enemy.tscn" id="2_5htt1"]
+[ext_resource type="PackedScene" uid="uid://d1lcam3au7yad" path="res://scenes/enemy/enemy_shroom.tscn" id="2_5htt1"]
 
 [sub_resource type="Curve2D" id="Curve2D_hjkia"]
 _data = {

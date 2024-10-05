@@ -17,7 +17,7 @@ animations = [{
 radius = 37.0
 height = 98.0
 
-[node name="Enemy" type="Node2D" groups=["Enemy"]]
+[node name="EnemyShroom" type="Node2D" groups=["Enemy"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -128)
