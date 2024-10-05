@@ -8,7 +8,7 @@
 size = Vector2(500, 500.001)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u0fnj"]
-radius = 12.0
+radius = 25.0
 
 [node name="TestPrope" type="Node2D"]
 
@@ -33,7 +33,7 @@ position = Vector2(321, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemyTest"]
 modulate = Color(1, 0, 0, 1)
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_3u1bm")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="EnemyTest" groups=["Enemy"]]
