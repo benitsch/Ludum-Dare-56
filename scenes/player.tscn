@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_u0g72"]
 [ext_resource type="Texture2D" uid="uid://ch5wgo2wttc3" path="res://DevArt/player/PlayerIdle01 .png" id="2_ogr4x"]
-[ext_resource type="PackedScene" uid="uid://b376r82tfjdhr" path="res://scenes/player_hit_area.tscn" id="3_qe2ja"]
+[ext_resource type="PackedScene" uid="uid://viipuauxm7f0" path="res://scenes/player_hit_area.tscn" id="3_qe2ja"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nq2cf"]
 animations = [{
@@ -67,7 +67,7 @@ position = Vector2(0, -116)
 shape = SubResource("CapsuleShape2D_88qo2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(0, -300)
+offset = Vector2(0, -350)
 zoom = Vector2(0.5, 0.5)
 
 [node name="PlayerHitArea" parent="." instance=ExtResource("3_qe2ja")]
