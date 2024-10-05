@@ -52,7 +52,7 @@ animations = [{
 size = Vector2(15, 23)
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 14
+collision_mask = 46
 script = ExtResource("1_u0g72")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -67,7 +67,8 @@ position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_50qq1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-limit_bottom = 199
 
 [node name="PlayerHitArea" parent="." instance=ExtResource("3_qe2ja")]
 position = Vector2(0, -11)
+
+[connection signal="hit_on_enemy" from="PlayerHitArea" to="." method="_on_player_hit_area_hit_on_enemy"]

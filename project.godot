@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 AudioPlayer="*res://scripts/audio_player.gd"
 
+[global_group]
+
+Enemy=""
+
 [input]
 
 move_left={
@@ -76,3 +80,7 @@ attack_down={
 2d_physics/layer_5="exit_area"
 2d_physics/layer_6="enemy"
 2d_physics/layer_7="Player Hit Area"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"

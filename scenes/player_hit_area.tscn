@@ -1,7 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://viipuauxm7f0"]
+[gd_scene load_steps=7 format=3 uid="uid://viipuauxm7f0"]
 
-[ext_resource type="Script" path="res://scenes/player_hit_area.gd" id="1_caph2"]
+[ext_resource type="Script" path="res://scripts/player_hit_area.gd" id="1_caph2"]
 [ext_resource type="Texture2D" uid="uid://b8ew3idm3rpiw" path="res://DevArt/Circle.png" id="1_glmqy"]
+
+[sub_resource type="Animation" id="Animation_a7ynp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitAreaSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitAreaSprite/HitArea:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_bjtk7"]
 resource_name = "fade"
@@ -21,18 +48,19 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HitAreaSprite/Area2D:monitorable")
+tracks/1/path = NodePath("HitAreaSprite/HitArea:monitoring")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1e-05),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, true, false]
 }
 
-[sub_resource type="Animation" id="Animation_a7ynp"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_jctjm"]
+resource_name = "hide"
+length = 0.02
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -40,28 +68,29 @@ tracks/0/path = NodePath("HitAreaSprite:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.01),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HitAreaSprite/Area2D:monitorable")
+tracks/1/path = NodePath("HitAreaSprite/HitArea:monitoring")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.01),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k4q7g"]
 _data = {
 "RESET": SubResource("Animation_a7ynp"),
-"fade": SubResource("Animation_bjtk7")
+"fade": SubResource("Animation_bjtk7"),
+"hide": SubResource("Animation_jctjm")
 }
 
 [node name="PlayerHitArea" type="Node2D"]
@@ -71,6 +100,7 @@ script = ExtResource("1_caph2")
 libraries = {
 "": SubResource("AnimationLibrary_k4q7g")
 }
+autoplay = "hide"
 
 [node name="HitAreaSprite" type="Node2D" parent="."]
 position = Vector2(14, 0)
@@ -89,13 +119,11 @@ texture = ExtResource("1_glmqy")
 scale = Vector2(0.025, 0.025)
 texture = ExtResource("1_glmqy")
 
-[node name="Area2D" type="Area2D" parent="HitAreaSprite"]
-light_mask = 64
-visibility_layer = 32
+[node name="HitArea" type="Area2D" parent="HitAreaSprite"]
 collision_layer = 64
 collision_mask = 32
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitAreaSprite/Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitAreaSprite/HitArea"]
 polygon = PackedVector2Array(-14, 0, -5, -14, 1, -12, 4, -6, 6, 0, 4, 6, 1, 12, -5, 14)
 
-[connection signal="area_shape_entered" from="HitAreaSprite/Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="body_entered" from="HitAreaSprite/HitArea" to="." method="_on_hit_area_body_entered"]
