@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=3 uid="uid://viipuauxm7f0"]
+
+[ext_resource type="Script" path="res://scenes/player_hit_area.gd" id="1_caph2"]
+[ext_resource type="Texture2D" uid="uid://b8ew3idm3rpiw" path="res://DevArt/Circle.png" id="1_glmqy"]
+
+[sub_resource type="Animation" id="Animation_bjtk7"]
+resource_name = "fade"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitAreaSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1e-05, 1, 3.5),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitAreaSprite/Area2D:monitorable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1e-05),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_a7ynp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitAreaSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitAreaSprite/Area2D:monitorable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k4q7g"]
+_data = {
+"RESET": SubResource("Animation_a7ynp"),
+"fade": SubResource("Animation_bjtk7")
+}
+
+[node name="PlayerHitArea" type="Node2D"]
+script = ExtResource("1_caph2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k4q7g")
+}
+
+[node name="HitAreaSprite" type="Node2D" parent="."]
+position = Vector2(14, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="HitAreaSprite"]
+position = Vector2(-2, -8)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_glmqy")
+
+[node name="Sprite2D3" type="Sprite2D" parent="HitAreaSprite"]
+position = Vector2(-2, 8)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_glmqy")
+
+[node name="Sprite2D" type="Sprite2D" parent="HitAreaSprite"]
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("1_glmqy")
+
+[node name="Area2D" type="Area2D" parent="HitAreaSprite"]
+light_mask = 64
+visibility_layer = 32
+collision_layer = 64
+collision_mask = 32
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitAreaSprite/Area2D"]
+polygon = PackedVector2Array(-14, 0, -5, -14, 1, -12, 4, -6, 6, 0, 4, 6, 1, 12, -5, 14)
+
+[connection signal="area_shape_entered" from="HitAreaSprite/Area2D" to="." method="_on_area_2d_area_shape_entered"]

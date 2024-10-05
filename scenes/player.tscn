@@ -1,16 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://2ir574xuagab"]
+[gd_scene load_steps=6 format=3 uid="uid://2ir574xuagab"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_u0g72"]
-[ext_resource type="Texture2D" uid="uid://b8ew3idm3rpiw" path="res://DevArt/Circle.png" id="2_3uywt"]
+[ext_resource type="Texture2D" uid="uid://d1u8wew1kyh2i" path="res://DevArt/Square.png" id="2_fns7a"]
+[ext_resource type="PackedScene" uid="uid://viipuauxm7f0" path="res://scenes/player_hit_area.tscn" id="3_qe2ja"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nq2cf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_3uywt")
+"texture": ExtResource("2_fns7a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_3uywt")
+"texture": ExtResource("2_fns7a")
 }],
 "loop": false,
 "name": &"fall",
@@ -18,10 +19,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_3uywt")
+"texture": ExtResource("2_fns7a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_3uywt")
+"texture": ExtResource("2_fns7a")
 }],
 "loop": true,
 "name": &"idle",
@@ -29,7 +30,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_3uywt")
+"texture": ExtResource("2_fns7a")
 }],
 "loop": false,
 "name": &"jump",
@@ -37,10 +38,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_3uywt")
+"texture": ExtResource("2_fns7a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_3uywt")
+"texture": ExtResource("2_fns7a")
 }],
 "loop": true,
 "name": &"run",
@@ -58,12 +59,15 @@ script = ExtResource("1_u0g72")
 position = Vector2(0, -11)
 scale = Vector2(0.03, 0.046)
 sprite_frames = SubResource("SpriteFrames_nq2cf")
-animation = &"run"
+animation = &"jump"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -11.5)
+position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_50qq1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_bottom = 199
+
+[node name="PlayerHitArea" parent="." instance=ExtResource("3_qe2ja")]
+position = Vector2(0, -11)
