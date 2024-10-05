@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://0vhdr1lunlve"]
+[gd_scene load_steps=4 format=3 uid="uid://bb2g6gfmrevmf"]
 
 [ext_resource type="PackedScene" uid="uid://2ir574xuagab" path="res://scenes/player.tscn" id="1_ka24p"]
-[ext_resource type="Texture2D" uid="uid://bllsywoyis8xy" path="res://icon.svg" id="2_1b8c5"]
+[ext_resource type="Texture2D" uid="uid://d1u8wew1kyh2i" path="res://DevArt/Square.png" id="2_0lhgu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jhr2"]
-size = Vector2(321, 48)
+size = Vector2(500, 500.001)
 
 [node name="NataTest" type="Node2D"]
 
@@ -12,14 +12,13 @@ size = Vector2(321, 48)
 position = Vector2(576, 63)
 
 [node name="testground" type="StaticBody2D" parent="."]
+position = Vector2(577, 107)
+scale = Vector2(2, 0.110202)
 collision_layer = 2
 collision_mask = 33
 
 [node name="Sprite2D" type="Sprite2D" parent="testground"]
-position = Vector2(558, 130)
-scale = Vector2(2.51563, 0.390625)
-texture = ExtResource("2_1b8c5")
+texture = ExtResource("2_0lhgu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="testground"]
-position = Vector2(558, 130)
 shape = SubResource("RectangleShape2D_4jhr2")
