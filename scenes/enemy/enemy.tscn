@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1lcam3au7yad"]
+[gd_scene load_steps=4 format=3 uid="uid://d1lcam3au7yad"]
 
 [ext_resource type="Texture2D" uid="uid://ddu2pos4ykach" path="res://DevArt/enemy/EnemyMushroomIdle01.png" id="1_ddtfw"]
 
@@ -13,8 +13,20 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Enemy" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c05a6"]
+radius = 37.0
+height = 98.0
+
+[node name="Enemy" type="Node2D" groups=["Enemy"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -128)
 sprite_frames = SubResource("SpriteFrames_x7tgo")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
+position = Vector2(0, -48)
+collision_layer = 32
+collision_mask = 65
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Enemy"]]
+shape = SubResource("CapsuleShape2D_c05a6")

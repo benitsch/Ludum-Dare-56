@@ -2,13 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://2ir574xuagab" path="res://scenes/player.tscn" id="1_efmfr"]
 [ext_resource type="Texture2D" uid="uid://d1u8wew1kyh2i" path="res://DevArt/Square.png" id="2_lggue"]
-[ext_resource type="Texture2D" uid="uid://b8ew3idm3rpiw" path="res://DevArt/Circle.png" id="3_3u1bm"]
+[ext_resource type="PackedScene" uid="uid://dvu7khddbfd13" path="res://scenes/enemy/enemy_pathing.tscn" id="3_ksspt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvb0m"]
 size = Vector2(500, 500.001)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_u0fnj"]
-radius = 25.0
+[sub_resource type="Curve2D" id="Curve2D_p1xd8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 350, 0)
+}
+point_count = 2
 
 [node name="TestPrope" type="Node2D"]
 
@@ -28,18 +31,6 @@ texture = ExtResource("2_lggue")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="testground"]
 shape = SubResource("RectangleShape2D_cvb0m")
 
-[node name="EnemyTest" type="Node2D" parent="." groups=["Enemy"]]
-position = Vector2(321, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="EnemyTest"]
-modulate = Color(1, 0, 0, 1)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_3u1bm")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="EnemyTest" groups=["Enemy"]]
-collision_layer = 32
-collision_mask = 97
-gravity_scale = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyTest/RigidBody2D" groups=["Enemy"]]
-shape = SubResource("CircleShape2D_u0fnj")
+[node name="EnemyPathing" parent="." instance=ExtResource("3_ksspt")]
+position = Vector2(97, 78)
+curve = SubResource("Curve2D_p1xd8")
