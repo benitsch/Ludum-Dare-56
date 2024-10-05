@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cihoecae3ddlq"]
+[gd_scene load_steps=5 format=4 uid="uid://cihoecae3ddlq"]
 
 [ext_resource type="PackedScene" uid="uid://2ir574xuagab" path="res://scenes/player.tscn" id="1_4710u"]
 [ext_resource type="Texture2D" uid="uid://d1u8wew1kyh2i" path="res://DevArt/Square.png" id="2_7ljt7"]
-[ext_resource type="PackedScene" uid="uid://yrgq0yh58ulc" path="res://scenes/tilemap.tscn" id="3_hw6x6"]
+[ext_resource type="PackedScene" uid="uid://c6hr8qmchsogj" path="res://scenes/tilemap_.tscn" id="3_hmjen"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujbt2"]
 size = Vector2(500, 500.001)
@@ -27,5 +27,5 @@ texture = ExtResource("2_7ljt7")
 visible = false
 shape = SubResource("RectangleShape2D_ujbt2")
 
-[node name="SampleTilemap" parent="." instance=ExtResource("3_hw6x6")]
-layer_0/tile_data = PackedInt32Array(65536, 65540, 1, 131072, 65540, 2, 196608, 65540, 3, 65537, 131076, 1, 131073, 131076, 2, 196609, 131076, 3, 65538, 196612, 1, 131074, 327684, 1, 196610, 131076, 2, 131075, 196612, 1, 196611, 196612, 2)
+[node name="Layer1" parent="." instance=ExtResource("3_hmjen")]
+tile_map_data = PackedByteArray("AAABAAEAAAABAAEAAAABAAIAAAAGAAEAAAABAAMAAAACAAIAAAACAAEAAAACAAEAAAACAAIAAAACAAIAAAACAAMAAAACAAIAAAADAAEAAAADAAEAAAADAAIAAAAFAAEAAAADAAMAAAACAAIAAAACAAQAAAACAAMAAAADAAQAAAACAAMAAAAEAAIAAAADAAEAAAAEAAMAAAADAAIAAAAEAAQAAAADAAMAAAAAAAIAAAABAAEAAAAAAAMAAAABAAIAAAAAAAQAAAABAAMAAAABAAQAAAACAAMAAAA=")
