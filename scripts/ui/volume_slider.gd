@@ -10,7 +10,6 @@ func _ready() -> void:
     self.value_changed.connect(_on_volume_value_changed)
     
 func _on_timer_timeout() -> void:
-    print('timeout')
     self.can_play_sound = true
 
 func _on_volume_value_changed(value: float) -> void:
