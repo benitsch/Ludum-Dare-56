@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1lcam3au7yad"]
+[gd_scene load_steps=5 format=3 uid="uid://d1lcam3au7yad"]
 
+[ext_resource type="Script" path="res://scenes/enemy/enemy_shroom.gd" id="1_78ng2"]
 [ext_resource type="Texture2D" uid="uid://ddu2pos4ykach" path="res://DevArt/enemy/EnemyMushroomIdle01.png" id="1_ddtfw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x7tgo"]
@@ -18,6 +19,7 @@ radius = 37.0
 height = 98.0
 
 [node name="EnemyShroom" type="Node2D" groups=["Enemy"]]
+script = ExtResource("1_78ng2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -128)
@@ -30,3 +32,5 @@ collision_mask = 65
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Enemy"]]
 shape = SubResource("CapsuleShape2D_c05a6")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

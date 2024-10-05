@@ -7,11 +7,13 @@ class_name Player
 @export var double_jump_force = 700
 @export var speed = 700
 @export var grav_jump_delay = 0.25
-@export var double_jump = false
+@export var double_jump = true
 @export var zoom_factor = 0.65
+@export var invincible_time = 1.0
+@export var hp = 3
 
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var camera  : Camera2D = $Camera2D
+@onready var camera : Camera2D = $Camera2D
 
 var active = true
 var grav_jump_timeout = 0.0
@@ -19,6 +21,7 @@ var can_double_jump = false
 var allowed_to_double_jump = false
 var backlash_X_force = 0.0
 var coyote_time = 0.0
+var invincible_timeout = 1.0
 
 func _process(delta: float) -> void:
 	# camera zoom
@@ -36,6 +39,8 @@ func _process(delta: float) -> void:
 		elif zoomChange > 1.0: zoomChange = 1.0
 		camera.set_zoom(Vector2(zoomChange, zoomChange))
 		camera.offset = Vector2(0, -500+300*zoomChange)
+	
+	if invincible_timeout > 0.0: invincible_timeout -= delta
 	
 	if grav_jump_timeout > 0:
 		grav_jump_timeout -= delta
@@ -96,7 +101,7 @@ func update_animations(direction):
 	
 	# play corret player animation
 	if is_on_floor():
-		if direction == 0 :
+		if direction == 0:
 			animated_sprite.play("idle")
 		else:
 			animated_sprite.play("run")
@@ -106,8 +111,15 @@ func update_animations(direction):
 		else:
 			animated_sprite.play("fall")
 
-
 func _on_player_hit_area_hit_on_enemy(backlash: Vector2, dmg: float) -> void:
 	velocity.y = backlash.y * backlash_force
 	backlash_X_force += backlash.x * backlash_force
 	if backlash_force != 0.0: velocity.x = 0.0
+
+func _on_hit_area_area_entered(area: Area2D) -> void:
+	if invincible_timeout > 0.0: return
+	if area.is_in_group("Enemy"):
+		hp -= 1
+		if hp <= 0: queue_free()
+		invincible_timeout = invincible_time
+		

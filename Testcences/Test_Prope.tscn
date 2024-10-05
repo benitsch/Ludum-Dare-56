@@ -18,7 +18,6 @@ point_count = 2
 
 [node name="Player" parent="." instance=ExtResource("1_efmfr")]
 position = Vector2(576, 63)
-double_jump = true
 
 [node name="testground" type="StaticBody2D" parent="."]
 position = Vector2(577, 107)

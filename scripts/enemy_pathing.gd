@@ -12,3 +12,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	path.progress += speed * delta * dir
 	if path.progress_ratio == 0 || path.progress_ratio == 1: dir = -dir
+
+
+func _on_child_exiting_tree(node: Node) -> void:
+	queue_free()

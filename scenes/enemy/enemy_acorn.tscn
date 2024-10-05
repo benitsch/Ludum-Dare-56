@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cw46lpr7hxi4o"]
 
 [ext_resource type="Texture2D" uid="uid://dckw8w61pmaxp" path="res://DevArt/enemy/EnemyFlyIdle01.png" id="1_ogyll"]
-[ext_resource type="Texture2D" uid="uid://bch2xotddq80a" path="res://DevArt/enemy/EnemyFlyIdle02.png" id="2_6d636"]
+[ext_resource type="Texture2D" uid="uid://dkbbbexgk4id7" path="res://DevArt/enemy/EnemyFlyIdle02.png" id="2_6d636"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_brwf5"]
 animations = [{

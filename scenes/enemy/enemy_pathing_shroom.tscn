@@ -17,3 +17,5 @@ script = ExtResource("1_hwb2d")
 loop = false
 
 [node name="Enemy" parent="Path" instance=ExtResource("2_5htt1")]
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
