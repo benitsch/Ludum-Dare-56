@@ -1,9 +1,9 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://sskftnklcksg"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://sskftnklcksg"]
 
 [ext_resource type="FontFile" uid="uid://pk5xggir0bng" path="res://assets/fonts/LT Beverage.otf" id="1_qoii4"]
 
 [sub_resource type="Gradient" id="Gradient_y1kc3"]
-colors = PackedColorArray(0.762879, 0.297351, 0, 1, 0.851372, 0.842326, 0, 0.576471)
+colors = PackedColorArray(0.156863, 0.235294, 0.278431, 1, 0.352941, 0.443137, 0.494118, 0.490196)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_nalsd"]
 gradient = SubResource("Gradient_y1kc3")
@@ -11,14 +11,21 @@ gradient = SubResource("Gradient_y1kc3")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rn47k"]
 texture = SubResource("GradientTexture2D_nalsd")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2go7"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pkpbn"]
+content_margin_left = 64.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wm16y"]
+content_margin_left = 64.0
+content_margin_right = 64.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hvr8g"]
+content_margin_left = 64.0
 
 [resource]
 default_font = ExtResource("1_qoii4")
 default_font_size = 64
-Button/colors/font_color = Color(0.4, 0.4, 0.4, 1)
+Button/colors/font_color = Color(0.93408, 0.93408, 0.93408, 1)
 Button/styles/focus = SubResource("StyleBoxTexture_rn47k")
-Button/styles/hover = SubResource("StyleBoxEmpty_d2go7")
+Button/styles/hover = SubResource("StyleBoxEmpty_pkpbn")
 Button/styles/normal = SubResource("StyleBoxEmpty_wm16y")
+Button/styles/pressed = SubResource("StyleBoxEmpty_hvr8g")
