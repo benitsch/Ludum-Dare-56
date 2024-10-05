@@ -1,27 +1,50 @@
 extends CharacterBody2D
 class_name Player
 
-@export var gravit = 400
-@export var jump_force = 250
-@export var speed = 125
+@export var gravit = 1500
+@export var jump_force = 350
+@export var double_jump_force = 450
+@export var speed = 200
+@export var coyote_jump_time = 0.25
+@export var double_jump = false
 
 @onready var animated_sprite = $AnimatedSprite2D
 
 var active = true
+var coyote_timeout = 0.0
+var can_double_jump = false
+var allowed_to_double_jump = false
 
 func _process(delta):
-	# gavity
-	if is_on_floor()==false:
-		velocity.y += gravit *delta
-		if velocity.y >= 500 :
-			velocity.y = 500
+	if coyote_timeout > 0:
+		coyote_timeout -= delta
 	
+	if is_on_floor() == true && double_jump == true:
+		can_double_jump = true
+		allowed_to_double_jump = false
+	
+	# gavity
+	if is_on_floor() == false && coyote_timeout <= 0.0:
+		velocity.y += gravit *delta
+		#if velocity.y >= 500 :
+		#	velocity.y = 500
 	
 	# movment
 	var direction = 0
 	if active:
-		if Input.is_action_pressed("jump") && is_on_floor():
-			jump(jump_force)
+		if Input.is_action_pressed("jump"):
+			if is_on_floor():
+				jump(jump_force)
+				coyote_timeout = coyote_jump_time
+			#elif coyote_timeout > 0:
+			#	jump(jump_force)
+			elif can_double_jump == true && allowed_to_double_jump == true:
+				can_double_jump = false
+				jump(double_jump_force)
+		elif coyote_timeout > 0.0:
+			coyote_timeout = 0.0
+		elif is_on_floor() == false && can_double_jump == true:
+			allowed_to_double_jump = true
 		
 		direction = Input.get_axis("move_left","move_right")
 		
