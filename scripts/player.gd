@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-@export var gravit = 1500
+@export var gravity = 1500
 @export var jump_force = 350
 @export var double_jump_force = 450
 @export var speed = 200
@@ -25,7 +25,7 @@ func _process(delta):
 	
 	# gavity
 	if is_on_floor() == false && coyote_timeout <= 0.0:
-		velocity.y += gravit *delta
+		velocity.y += gravity * delta
 		#if velocity.y >= 500 :
 		#	velocity.y = 500
 	
