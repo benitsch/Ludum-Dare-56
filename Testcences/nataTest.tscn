@@ -1,24 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://cihoecae3ddlq"]
+[gd_scene load_steps=5 format=3 uid="uid://cihoecae3ddlq"]
 
-[ext_resource type="PackedScene" uid="uid://2ir574xuagab" path="res://scenes/player.tscn" id="1_veurf"]
-[ext_resource type="Texture2D" uid="uid://d1u8wew1kyh2i" path="res://DevArt/Square.png" id="2_5fp33"]
+[ext_resource type="PackedScene" uid="uid://2ir574xuagab" path="res://scenes/player.tscn" id="1_4710u"]
+[ext_resource type="Texture2D" uid="uid://d1u8wew1kyh2i" path="res://DevArt/Square.png" id="2_7ljt7"]
+[ext_resource type="PackedScene" uid="uid://yrgq0yh58ulc" path="res://scenes/tilemap.tscn" id="3_hw6x6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujbt2"]
 size = Vector2(500, 500.001)
 
 [node name="NataTest" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_veurf")]
+[node name="Player" parent="." instance=ExtResource("1_4710u")]
 position = Vector2(576, 63)
 
 [node name="testground" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2(577, 107)
 scale = Vector2(2, 0.110202)
 collision_layer = 2
 collision_mask = 33
 
 [node name="Sprite2D" type="Sprite2D" parent="testground"]
-texture = ExtResource("2_5fp33")
+visible = false
+texture = ExtResource("2_7ljt7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="testground"]
+visible = false
 shape = SubResource("RectangleShape2D_ujbt2")
+
+[node name="SampleTilemap" parent="." instance=ExtResource("3_hw6x6")]
+layer_0/tile_data = PackedInt32Array(65536, 65536, 1, 131072, 65536, 2, 196608, 65536, 3, 65537, 131072, 1, 131073, 131072, 2, 196609, 131072, 3, 65538, 196608, 1, 131074, 327680, 1, 196610, 131072, 2, 131075, 196608, 1, 196611, 196608, 3)
