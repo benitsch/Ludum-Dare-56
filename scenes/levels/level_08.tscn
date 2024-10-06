@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" path="res://scenes/death_zone.tscn" id="4_xgqgg"]
 [ext_resource type="PackedScene" uid="uid://2ir574xuagab" path="res://scenes/player.tscn" id="5_8xwiq"]
 [ext_resource type="Texture2D" uid="uid://cx7pi5dvcpaxt" path="res://DevArt/enviroment/Treetrunk02.png" id="5_40cch"]
-[ext_resource type="Texture2D" uid="uid://c5dv2mgoc3k1t" path="res://DevArt/enviroment/Start.png" id="6_0mg75"]
+[ext_resource type="Texture2D" uid="uid://cl6rdadtp3d7l" path="res://DevArt/enviroment/Sign04.png" id="6_lm6dc"]
 [ext_resource type="PackedScene" uid="uid://db5psywnxn8a6" path="res://scenes/exit.tscn" id="6_urbcq"]
 [ext_resource type="PackedScene" path="res://scenes/enemy/enemy_flying_acorn.tscn" id="7_1l7a2"]
 [ext_resource type="PackedScene" uid="uid://d1lcam3au7yad" path="res://scenes/enemy/enemy_shroom.tscn" id="7_2jmak"]
@@ -185,9 +185,9 @@ position = Vector2(5632, -336)
 texture = ExtResource("5_40cch")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Objects"]
-position = Vector2(6636, -2093)
+position = Vector2(6634, -2153)
 rotation = -1.5708
-texture = ExtResource("6_0mg75")
+texture = ExtResource("6_lm6dc")
 flip_h = true
 
 [node name="Traps" type="Node2D" parent="."]
