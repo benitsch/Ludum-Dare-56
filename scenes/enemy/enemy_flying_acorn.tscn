@@ -4,11 +4,15 @@
 [ext_resource type="Script" path="res://scripts/enemy_pathing.gd" id="1_fbyxv"]
 
 [sub_resource type="Curve2D" id="Curve2D_p7n8r"]
+resource_local_to_scene = true
 
 [node name="EnemyFlying" type="Path2D"]
 curve = SubResource("Curve2D_p7n8r")
 script = ExtResource("1_fbyxv")
 
 [node name="Path" type="PathFollow2D" parent="."]
+rotates = false
+cubic_interp = false
+loop = false
 
 [node name="EnemyAcorn" parent="Path" instance=ExtResource("1_6cqcv")]
