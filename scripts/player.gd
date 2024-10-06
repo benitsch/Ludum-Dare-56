@@ -2,16 +2,16 @@ extends CharacterBody2D
 class_name Player
 
 @export var gravity = 3000
-@export var jump_force = 800
-@export var backlash_force = 750
-@export var double_jump_force = 700
 @export var speed = 700
+@export var jump_force = 800
 @export var grav_jump_delay = 0.25
+@export var double_jump_force = 1200
+@export var backlash_force = 750
 @export var double_jump = true
-@export var zoom_factor = 0.65
 @export var invincible_time = 1.0
 @export var hp = 3
 @export var start_zoom = 0.5
+@export var zoom_factor = 0.65
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var camera : Camera2D = $Camera2D
