@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://db5psywnxn8a6"]
 
 [ext_resource type="Script" path="res://scripts/exit.gd" id="1_dxtdd"]
-[ext_resource type="Texture2D" uid="uid://d0bw0vymsofi3" path="res://DevArt/enviroment/Exit.png" id="2_wjr6j"]
+[ext_resource type="Texture2D" uid="uid://bdpkx11y7qiu1" path="res://DevArt/enviroment/Exit.png" id="2_wjr6j"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kyadm"]
 animations = [{
@@ -15,7 +15,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rp3jp"]
-radius = 17.0
+radius = 54.0
 height = 308.0
 
 [node name="Exit" type="Area2D"]
