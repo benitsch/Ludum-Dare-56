@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpb0qboiq46yr"]
+
+[ext_resource type="PackedScene" uid="uid://bp0kh61x22hov" path="res://scenes/ui/background.tscn" id="1_y7p5x"]
+[ext_resource type="PackedScene" uid="uid://bhy6v7h1w250f" path="res://scenes/ui/back_button.tscn" id="2_7cbwn"]
+
+[node name="CreditsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" parent="." instance=ExtResource("1_y7p5x")]
+layout_mode = 1
+
+[node name="BackButton" parent="." instance=ExtResource("2_7cbwn")]
+layout_mode = 1

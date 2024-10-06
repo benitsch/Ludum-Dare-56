@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch6ngt47ojjyx"]
+
+[ext_resource type="PackedScene" uid="uid://bp0kh61x22hov" path="res://scenes/ui/background.tscn" id="1_ng67u"]
+[ext_resource type="PackedScene" uid="uid://bhy6v7h1w250f" path="res://scenes/ui/back_button.tscn" id="2_jxpcs"]
+
+[node name="LevelSelectMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" parent="." instance=ExtResource("1_ng67u")]
+layout_mode = 0
+anchors_preset = 0
+
+[node name="BackButton" parent="." instance=ExtResource("2_jxpcs")]
+layout_mode = 1
