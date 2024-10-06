@@ -11,6 +11,7 @@ class_name Player
 @export var zoom_factor = 0.65
 @export var invincible_time = 1.0
 @export var hp = 3
+@export var start_zoom = 0.5
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var camera : Camera2D = $Camera2D
@@ -22,6 +23,13 @@ var allowed_to_double_jump = false
 var backlash_X_force = 0.0
 var coyote_time = 0.0
 var invincible_timeout = 1.0
+
+func _ready() -> void:
+	SetZoom(start_zoom)
+
+func SetZoom(zoomLevel : float) -> void:	
+	camera.set_zoom(Vector2(zoomLevel, zoomLevel))
+	camera.offset = Vector2(0, -500+300*zoomLevel)
 
 func _process(delta: float) -> void:
 	# camera zoom
@@ -37,8 +45,7 @@ func _process(delta: float) -> void:
 		zoomChange = camera.get_zoom().x + zoomChange
 		if zoomChange < 0.25: zoomChange = 0.25
 		elif zoomChange > 1.0: zoomChange = 1.0
-		camera.set_zoom(Vector2(zoomChange, zoomChange))
-		camera.offset = Vector2(0, -500+300*zoomChange)
+		SetZoom(zoomChange)
 	
 	if invincible_timeout > 0.0: invincible_timeout -= delta
 	
