@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_6ahfv"]
 [ext_resource type="PackedScene" uid="uid://ce38etm4w8mqi" path="res://scenes/start.tscn" id="2_p8r7d"]
 [ext_resource type="PackedScene" uid="uid://caveuqugfhufn" path="res://scenes/levels/level_03.tscn" id="2_ukc5a"]
+[ext_resource type="Texture2D" uid="uid://dvdpx3lu5elwq" path="res://DevArt/enviroment/IngameBackground01.jpg" id="3_uvnv4"]
 [ext_resource type="PackedScene" path="res://scenes/death_zone.tscn" id="3_vq4q2"]
-[ext_resource type="PackedScene" path="res://scenes/ui/background.tscn" id="4_sf7bn"]
 [ext_resource type="PackedScene" uid="uid://dvu7khddbfd13" path="res://scenes/enemy/enemy_pathing_shroom.tscn" id="5_4rxwx"]
 [ext_resource type="PackedScene" uid="uid://cw46lpr7hxi4o" path="res://scenes/enemy/enemy_acorn.tscn" id="6_nnkd1"]
 [ext_resource type="PackedScene" uid="uid://2ir574xuagab" path="res://scenes/player.tscn" id="6_w6kmo"]
@@ -158,13 +158,22 @@ sources/0 = SubResource("TileSetAtlasSource_3lbg4")
 script = ExtResource("1_6ahfv")
 next_level = ExtResource("2_ukc5a")
 
+[node name="Background" type="Sprite2D" parent="."]
+show_behind_parent = true
+z_index = -5
+texture_filter = 3
+texture_repeat = 2
+position = Vector2(579, -2193)
+scale = Vector2(2, 2)
+texture = ExtResource("3_uvnv4")
+region_enabled = true
+region_rect = Rect2(0, 0, 5000, 3240)
+
 [node name="Start" parent="." instance=ExtResource("2_p8r7d")]
 position = Vector2(-1660, 36)
 
 [node name="DeathZone" parent="." instance=ExtResource("3_vq4q2")]
 position = Vector2(0, 3278)
-
-[node name="Background" parent="." instance=ExtResource("4_sf7bn")]
 
 [node name="Objects" type="Node2D" parent="."]
 
