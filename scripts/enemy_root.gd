@@ -1,10 +1,15 @@
 extends Node2D
 
 @export var attack_delay = 3.0
+@export var start_delay = -1
 
 var shot_scene = preload("res://scenes/enemy/enemy_shot.tscn")
 
 var attack_timeout = 0.0
+
+func _ready() -> void:
+	if start_delay == -1: attack_timeout = randf() * attack_delay
+	else: attack_timeout = start_delay
 
 func _process(delta: float) -> void:
 	if attack_timeout > 0.0:
