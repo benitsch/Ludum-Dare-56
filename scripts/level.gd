@@ -7,11 +7,9 @@ class_name Level
 
 @onready var death_zone = $DeathZone
 @onready var exit = $Exit
-@onready var hud = $UILayer/HUD
 @onready var player = $Player
 @onready var start = $Start
 @onready var traps = $Traps
-@onready var ui_layer = $UILayer
 
 
 
