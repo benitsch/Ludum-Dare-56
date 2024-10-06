@@ -12,7 +12,8 @@ func _on_credits_label_meta_clicked(meta: Variant) -> void:
 func buildText() -> void:
     self.text = ''
     addUser('Berni', 'Emotional Support', 'zom0')
-    addUser('Floke', 'Maskot')
+    addUser('Fin', 'Audio', '', 'https://www.youtube.com/@FIN_Der-Otter')
+    addUser('Flocke', 'Mascot')
     addUser('Martin', 'Programming, Level Design', '20goto10')
     addUser('Natascha', 'Animation, Level Design', 'krisss-gonko')
     addUser('Stephie', 'Animation, Art', 'kyunru')
@@ -31,9 +32,11 @@ func addUrl(url: String, label: String = '') -> void:
 func addLine(string: String = '') -> void:
     self.text += string + '\n'
     
-func addUser(name: String, tags: String, itchUser: String = '') -> void:
+func addUser(name: String, tags: String, itchUser: String = '', directLink: String = '') -> void:
     if itchUser != '':
         addUrl('https://' + itchUser + '.itch.io', name)
+    elif directLink != '':
+        addUrl(directLink, name)
     else:
         self.text += name
 
