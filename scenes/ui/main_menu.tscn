@@ -49,6 +49,12 @@ script = ExtResource("4_elir1")
 targetScenePath = "res://scenes/levels/level_01.tscn"
 hasInitialFocus = true
 
+[node name="ControlsButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Controls"
+script = ExtResource("4_elir1")
+targetScenePath = "res://scenes/ui/controls_menu.tscn"
+
 [node name="LevelSelectButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Select Level"
