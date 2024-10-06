@@ -16,6 +16,7 @@ class_name Player
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var camera : Camera2D = $Camera2D
+@onready var animator = $AnimationPlayer
 
 var active = true
 var grav_jump_timeout = 0.0
@@ -25,6 +26,7 @@ var backlash_X_force = 0.0
 var coyote_time = 0.0
 var invincible_timeout = 1.0
 var level = null
+var playing_inv_anim = false
 
 func _ready() -> void:
 	SetZoom(start_zoom)
@@ -39,6 +41,10 @@ func SetZoom(zoomLevel : float) -> void:
 	camera.offset = Vector2(0, -500+300*zoomLevel)
 
 func _process(delta: float) -> void:
+	if playing_inv_anim and invincible_time < 0.1:
+		playing_inv_anim = false
+		animator.play("RESET")
+	
 	# camera zoom
 	var zoomChange 
 	if Input.is_action_pressed("ZoomIn"):
@@ -142,7 +148,8 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 		backlash_X_force += dir.x * backlash_force * 4
 		
 		invincible_timeout = invincible_time
-		
+		playing_inv_anim = true
+		animator.play("hit")
 
 func reset():
 	hp = start_hp
