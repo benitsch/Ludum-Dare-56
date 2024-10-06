@@ -147,7 +147,6 @@ sources/0 = SubResource("TileSetAtlasSource_mocqs")
 
 [node name="Level_01" type="Node2D"]
 script = ExtResource("1_eiaxq")
-is_final_level = true
 
 [node name="Start" parent="." instance=ExtResource("3_a10k4")]
 position = Vector2(-111, 59)

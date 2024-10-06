@@ -1,8 +1,6 @@
 extends Node2D
 class_name Level
 
-
-@export var is_final_level: bool = false
 @export var next_level: PackedScene = null
 
 @onready var death_zone = $DeathZone
@@ -35,8 +33,7 @@ func _on_trap_touched_player():
 	reset_player()
 
 func reset_player(first_reset:bool = false):
-	if !first_reset:
-		AudioPlayer.play_sfx("hurt")
+	if !first_reset: AudioPlayer.play_sfx("hurt")
 	player.set_global_position(start.get_spawn_pos())
 	player.set_velocity(Vector2.ZERO)
 
@@ -56,7 +53,6 @@ func end_level():
 	player.active = false
 	await get_tree().create_timer(0.5).timeout
 	exit.pause_animate()
-	if is_final_level:
-		get_tree().change_scene_to_file("res://scenes/win_screen.tscn")
-	elif next_level != null:
-		get_tree().change_scene_to_packed(next_level)
+	
+	if next_level != null: get_tree().change_scene_to_packed(next_level)
+	else: get_tree().change_scene_to_file("res://scenes/win_screen.tscn")
