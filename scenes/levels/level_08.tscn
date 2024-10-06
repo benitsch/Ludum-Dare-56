@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://c7req83npduab"]
+[gd_scene load_steps=19 format=4 uid="uid://c7req83npduab"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ko1s5"]
 [ext_resource type="Texture2D" uid="uid://dvdpx3lu5elwq" path="res://DevArt/enviroment/IngameBackground01.jpg" id="2_ch242"]
@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" path="res://scenes/death_zone.tscn" id="4_xgqgg"]
 [ext_resource type="PackedScene" uid="uid://2ir574xuagab" path="res://scenes/player.tscn" id="5_8xwiq"]
 [ext_resource type="Texture2D" uid="uid://cx7pi5dvcpaxt" path="res://DevArt/enviroment/Treetrunk02.png" id="5_40cch"]
-[ext_resource type="Texture2D" uid="uid://cl6rdadtp3d7l" path="res://DevArt/enviroment/Sign04.png" id="6_lm6dc"]
+[ext_resource type="Texture2D" uid="uid://bw5yvx5g331p8" path="res://DevArt/enviroment/Sign04.png" id="6_lm6dc"]
 [ext_resource type="PackedScene" uid="uid://db5psywnxn8a6" path="res://scenes/exit.tscn" id="6_urbcq"]
 [ext_resource type="PackedScene" path="res://scenes/enemy/enemy_flying_acorn.tscn" id="7_1l7a2"]
 [ext_resource type="PackedScene" uid="uid://d1lcam3au7yad" path="res://scenes/enemy/enemy_shroom.tscn" id="7_2jmak"]
+[ext_resource type="PackedScene" path="res://scenes/magic_mush.tscn" id="7_etbnf"]
 [ext_resource type="PackedScene" uid="uid://c6hr8qmchsogj" path="res://scenes/tilemap_layer.tscn" id="7_olocc"]
 [ext_resource type="Texture2D" uid="uid://donfrdihpabyx" path="res://DevArt/Tileset01.png" id="8_g4h68"]
 [ext_resource type="PackedScene" uid="uid://cw46lpr7hxi4o" path="res://scenes/enemy/enemy_acorn.tscn" id="8_lf40r"]
@@ -172,6 +173,17 @@ texture = ExtResource("2_ch242")
 region_enabled = true
 region_rect = Rect2(0, 0, 5760, 3240)
 
+[node name="Background2" type="Sprite2D" parent="."]
+show_behind_parent = true
+z_index = -5
+texture_filter = 3
+texture_repeat = 2
+position = Vector2(13993, -2292)
+scale = Vector2(2, 2)
+texture = ExtResource("2_ch242")
+region_enabled = true
+region_rect = Rect2(0, 0, 5760, 3240)
+
 [node name="Start" parent="." instance=ExtResource("3_wj3ef")]
 position = Vector2(-295, -202)
 
@@ -189,6 +201,9 @@ position = Vector2(6634, -2153)
 rotation = -1.5708
 texture = ExtResource("6_lm6dc")
 flip_h = true
+
+[node name="MagicMush" parent="Objects" instance=ExtResource("7_etbnf")]
+position = Vector2(8299, -2403)
 
 [node name="Traps" type="Node2D" parent="."]
 
