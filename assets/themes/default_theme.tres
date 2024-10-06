@@ -23,7 +23,7 @@ content_margin_left = 64.0
 
 [resource]
 default_font = ExtResource("1_qoii4")
-default_font_size = 64
+default_font_size = 48
 Button/colors/font_color = Color(0.93408, 0.93408, 0.93408, 1)
 Button/styles/focus = SubResource("StyleBoxTexture_rn47k")
 Button/styles/hover = SubResource("StyleBoxEmpty_pkpbn")
