@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=4 uid="uid://caveuqugfhufn"]
+[gd_scene load_steps=17 format=4 uid="uid://caveuqugfhufn"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_skkg7"]
 [ext_resource type="PackedScene" uid="uid://ce38etm4w8mqi" path="res://scenes/start.tscn" id="2_6vvm2"]
+[ext_resource type="PackedScene" path="res://scenes/levels/level_04.tscn" id="2_hfe57"]
 [ext_resource type="PackedScene" path="res://scenes/death_zone.tscn" id="3_ie630"]
 [ext_resource type="PackedScene" path="res://scenes/enemy/enemy_root.tscn" id="5_dovru"]
 [ext_resource type="PackedScene" uid="uid://2ir574xuagab" path="res://scenes/player.tscn" id="6_0b5m0"]
@@ -13,6 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://donfrdihpabyx" path="res://DevArt/Tileset01.png" id="9_rd1tx"]
 
 [sub_resource type="Curve2D" id="Curve2D_grhkn"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -2, 0, 0, 0, 0, 300, -2)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_4nush"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, -2, 0, 0, 0, 0, 300, -2)
@@ -155,9 +163,10 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.4582, 0.58, 0.5191, 1)
 sources/0 = SubResource("TileSetAtlasSource_2b18s")
 
-[node name="Level2" type="Node2D"]
+[node name="Level" type="Node2D"]
 position = Vector2(-3, -3)
 script = ExtResource("1_skkg7")
+next_level = ExtResource("2_hfe57")
 
 [node name="Background" type="Sprite2D" parent="."]
 show_behind_parent = true
@@ -202,7 +211,7 @@ curve = SubResource("Curve2D_grhkn")
 
 [node name="EnemyPathing2" parent="Enemies" instance=ExtResource("7_mg0ct")]
 position = Vector2(1025, -465)
-curve = SubResource("Curve2D_grhkn")
+curve = SubResource("Curve2D_4nush")
 startPos = 0.99
 
 [node name="Player" parent="." instance=ExtResource("6_0b5m0")]

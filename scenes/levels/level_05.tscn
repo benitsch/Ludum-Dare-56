@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=4 uid="uid://csj8fxh5a0x7e"]
+[gd_scene load_steps=13 format=4 uid="uid://dnhxalqmtfvfu"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_y7kny"]
 [ext_resource type="Texture2D" uid="uid://dvdpx3lu5elwq" path="res://DevArt/enviroment/IngameBackground01.jpg" id="2_dpesl"]
+[ext_resource type="PackedScene" uid="uid://ybjtumyx3hwc" path="res://scenes/levels/level_06.tscn" id="2_dpxhp"]
 [ext_resource type="PackedScene" uid="uid://ce38etm4w8mqi" path="res://scenes/start.tscn" id="3_8utkg"]
 [ext_resource type="PackedScene" path="res://scenes/death_zone.tscn" id="4_eft5x"]
 [ext_resource type="PackedScene" path="res://scenes/enemy/enemy_root.tscn" id="5_qlr32"]
@@ -149,6 +150,7 @@ sources/0 = SubResource("TileSetAtlasSource_b7u8m")
 [node name="Level" type="Node2D"]
 position = Vector2(-3, -3)
 script = ExtResource("1_y7kny")
+next_level = ExtResource("2_dpxhp")
 
 [node name="Background" type="Sprite2D" parent="."]
 show_behind_parent = true
