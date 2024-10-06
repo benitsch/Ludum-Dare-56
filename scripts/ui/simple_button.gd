@@ -12,18 +12,22 @@ enum AlignmentEnum {LEFT, CENTER, RIGHT}
             self.alignment = HORIZONTAL_ALIGNMENT_RIGHT
         else:
             self.alignment = HORIZONTAL_ALIGNMENT_LEFT
+@export var hasInitialFocus: bool = false
 
 func _init() -> void:
     self.alignment = HORIZONTAL_ALIGNMENT_LEFT
 
 func _ready() -> void:
+    if self.hasInitialFocus == true:
+        grab_focus()
+    
     self.mouse_entered.connect(_on_button_mouse_entered)
     self.pressed.connect(_on_button_pressed)
+    
 
 func _on_button_mouse_entered() -> void:
     if self.has_focus() == false:
         grab_focus()
-        var tmp = 0
     
 func _on_button_pressed() -> void:
     if targetScenePath == '':
