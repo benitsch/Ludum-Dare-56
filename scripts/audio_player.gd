@@ -2,6 +2,10 @@ extends Node
 
 @export var volume: float = 0;
 
+@onready var bg_music = $MusicPlayer
+
+enum SCENE_SET {MENU, LEVEL, ENDSCREEN}
+
 var hurt = preload("res://assets/audio/PLACEHOLDER-hurt.wav")
 var jump = preload("res://assets/audio/PLACEHOLDER-jump.wav")
 
@@ -25,3 +29,5 @@ func play_sfx(sfx_name: String):
 	asp.play()
 	await asp.finished
 	asp.queue_free()
+
+# func change_music()
