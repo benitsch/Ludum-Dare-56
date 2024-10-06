@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgvdgc8s43q4k"]
+[gd_scene load_steps=5 format=3 uid="uid://cgvdgc8s43q4k"]
 
 [ext_resource type="Script" path="res://scripts/ui/level_select_button.gd" id="2_b4q5t"]
-[ext_resource type="Texture2D" uid="uid://ckl0eb0moo5tn" path="res://DevArt/enviroment/Sign01.png" id="2_exsuk"]
+[ext_resource type="Texture2D" uid="uid://s56h7u104nkm" path="res://DevArt/enviroment/Sign01.png" id="2_exsuk"]
+[ext_resource type="Texture2D" uid="uid://besxb0sw3dce2" path="res://DevArt/enviroment/Sign03.png" id="2_kxcqy"]
+[ext_resource type="Texture2D" uid="uid://b82jwbdq1y6sf" path="res://DevArt/enviroment/Sign02.png" id="3_elw7g"]
 
 [node name="LevelSelectButton" type="TextureButton"]
 anchors_preset = 15
@@ -12,6 +14,8 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource("2_exsuk")
+texture_pressed = ExtResource("2_kxcqy")
+texture_hover = ExtResource("3_elw7g")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("2_b4q5t")
