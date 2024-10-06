@@ -60,6 +60,7 @@ theme = ExtResource("4_xg2pg")
 text = "1"
 script = ExtResource("4_0e4kc")
 levelNumber = 1
+textAlignment = 1
 
 [node name="BackButton" parent="VBoxContainer" instance=ExtResource("2_jxpcs")]
 layout_mode = 2
