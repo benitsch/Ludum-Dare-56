@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://kenxkeefe6wg"]
+[gd_scene load_steps=12 format=4 uid="uid://kenxkeefe6wg"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_eiaxq"]
-[ext_resource type="PackedScene" uid="uid://b6akia0scd3i1" path="res://scenes/start.tscn" id="3_a10k4"]
+[ext_resource type="PackedScene" uid="uid://kq4s56lt78m2" path="res://scenes/levels/level_02.tscn" id="2_nq305"]
+[ext_resource type="PackedScene" uid="uid://ce38etm4w8mqi" path="res://scenes/start.tscn" id="3_a10k4"]
 [ext_resource type="PackedScene" path="res://scenes/death_zone.tscn" id="4_1c56r"]
 [ext_resource type="PackedScene" uid="uid://c6hr8qmchsogj" path="res://scenes/tilemap_layer.tscn" id="5_de2yp"]
 [ext_resource type="PackedScene" path="res://scenes/ui/background.tscn" id="6_tgnjl"]
@@ -147,6 +148,7 @@ sources/0 = SubResource("TileSetAtlasSource_mocqs")
 
 [node name="Level_01" type="Node2D"]
 script = ExtResource("1_eiaxq")
+next_level = ExtResource("2_nq305")
 
 [node name="Start" parent="." instance=ExtResource("3_a10k4")]
 position = Vector2(-111, 59)
