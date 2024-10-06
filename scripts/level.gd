@@ -9,8 +9,6 @@ class_name Level
 @onready var start = $Start
 @onready var traps = $Traps
 
-
-
 func _ready():
 	reset_player(true)
 	connect_traps()

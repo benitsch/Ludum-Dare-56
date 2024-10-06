@@ -126,7 +126,9 @@ func update_animations(direction):
 		else:
 			animated_sprite.play("run")
 	else:
-		if velocity.y < 0:
+		if direction == 0:
+			animated_sprite.play("jumpFront")
+		elif velocity.y < 0:
 			animated_sprite.play("jump")
 		else:
 			animated_sprite.play("fall")

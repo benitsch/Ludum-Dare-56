@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d1lcam3au7yad" path="res://scenes/enemy/enemy_shroom.tscn" id="2_5htt1"]
 
 [sub_resource type="Curve2D" id="Curve2D_hjkia"]
+resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, -2)
 }
