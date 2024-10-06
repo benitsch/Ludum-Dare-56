@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://sskftnklcksg" path="res://assets/themes/default_theme.tres" id="1_ud3nx"]
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="2_jjftk"]
-[ext_resource type="PackedScene" uid="uid://bp0kh61x22hov" path="res://scenes/background.tscn" id="3_wqsap"]
+[ext_resource type="PackedScene" uid="uid://bp0kh61x22hov" path="res://scenes/ui/background.tscn" id="3_wqsap"]
 [ext_resource type="Script" path="res://scripts/ui/simple_button.gd" id="4_elir1"]
 
 [node name="MainMenu" type="Control"]
@@ -59,6 +59,7 @@ script = ExtResource("4_elir1")
 layout_mode = 2
 text = "Settings"
 script = ExtResource("4_elir1")
+targetScenePath = "res://scenes/ui/settings_menu.tscn"
 
 [node name="CreditsButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -67,5 +68,4 @@ script = ExtResource("4_elir1")
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

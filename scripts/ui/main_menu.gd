@@ -12,13 +12,3 @@ func _ready() -> void:
 func _on_start_button_pressed() -> void:
     start_game.emit()
     hide()
-
-func _on_settings_button_pressed() -> void:
-    pass # Replace with function body.
-
-func _on_level_select_button_pressed() -> void:
-    pass # Replace with function body.
-
-
-func _on_credits_button_pressed() -> void:
-    pass # Replace with function body.
