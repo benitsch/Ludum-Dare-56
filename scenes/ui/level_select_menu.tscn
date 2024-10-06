@@ -14,6 +14,10 @@ grow_vertical = 2
 [node name="Background" parent="." instance=ExtResource("1_ng67u")]
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="BackButton" parent="." instance=ExtResource("2_jxpcs")]
 layout_mode = 1
