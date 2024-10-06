@@ -2,7 +2,7 @@ extends Control
 
 @onready var grid: GridContainer = %LevelGrid
 
-var levelCount: int = 4
+var levelCount: int = 7
 var scene: Resource = preload('res://scenes/ui/level_select_button.tscn')
 
 func _ready() -> void:
