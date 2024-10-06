@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bphgxk6f4f3fo"]
+[gd_scene load_steps=5 format=3 uid="uid://bphgxk6f4f3fo"]
 
 [ext_resource type="Theme" uid="uid://sskftnklcksg" path="res://assets/themes/default_theme.tres" id="1_3dx3x"]
 [ext_resource type="PackedScene" uid="uid://bp0kh61x22hov" path="res://scenes/ui/background.tscn" id="2_hm6tx"]
+[ext_resource type="PackedScene" uid="uid://bg5xnuvmma4hv" path="res://scenes/ui/control_container.tscn" id="3_8fuc5"]
 [ext_resource type="PackedScene" uid="uid://bhy6v7h1w250f" path="res://scenes/ui/back_button.tscn" id="4_oxdao"]
 
 [node name="ControlsMenu" type="Control"]
@@ -44,14 +45,65 @@ theme_override_constants/margin_left = 64
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 122
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer2"]
+[node name="ControlGrid" type="GridContainer" parent="VBoxContainer/MarginContainer2"]
 layout_mode = 2
-horizontal_scroll_mode = 0
+columns = 3
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/ScrollContainer"]
+[node name="ControlContainer" parent="VBoxContainer/MarginContainer2/ControlGrid" instance=ExtResource("3_8fuc5")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
+keyString = "A"
+descriptionString = "Move Left"
+leftMarginOffset = 2
+
+[node name="ControlContainer2" parent="VBoxContainer/MarginContainer2/ControlGrid" instance=ExtResource("3_8fuc5")]
+layout_mode = 2
+keyString = "D"
+descriptionString = "Move Right"
+
+[node name="ControlContainer3" parent="VBoxContainer/MarginContainer2/ControlGrid" instance=ExtResource("3_8fuc5")]
+layout_mode = 2
+keyString = "W"
+descriptionString = "Jump"
+leftMarginOffset = -7
+
+[node name="ControlContainer4" parent="VBoxContainer/MarginContainer2/ControlGrid" instance=ExtResource("3_8fuc5")]
+layout_mode = 2
+keyString = "R"
+descriptionString = "Reset"
+
+[node name="ControlContainer5" parent="VBoxContainer/MarginContainer2/ControlGrid" instance=ExtResource("3_8fuc5")]
+layout_mode = 2
+keyString = "X"
+descriptionString = "Zoom In"
+
+[node name="ControlContainer6" parent="VBoxContainer/MarginContainer2/ControlGrid" instance=ExtResource("3_8fuc5")]
+layout_mode = 2
+keyString = "Y"
+descriptionString = "Zoom Out"
+
+[node name="ControlContainer7" parent="VBoxContainer/MarginContainer2/ControlGrid" instance=ExtResource("3_8fuc5")]
+layout_mode = 2
+keyString = "←"
+descriptionString = "Attack Left"
+leftMarginOffset = 5
+
+[node name="ControlContainer8" parent="VBoxContainer/MarginContainer2/ControlGrid" instance=ExtResource("3_8fuc5")]
+layout_mode = 2
+keyString = "→"
+descriptionString = "Attack Right"
+leftMarginOffset = 5
+
+[node name="ControlContainer9" parent="VBoxContainer/MarginContainer2/ControlGrid" instance=ExtResource("3_8fuc5")]
+layout_mode = 2
+keyString = "↑"
+descriptionString = "Attack Up"
+leftMarginOffset = 4
+
+[node name="ControlContainer10" parent="VBoxContainer/MarginContainer2/ControlGrid" instance=ExtResource("3_8fuc5")]
+layout_mode = 2
+keyString = "↓"
+descriptionString = "Attack Down"
+leftMarginOffset = 5
 
 [node name="BackButton" parent="." instance=ExtResource("4_oxdao")]
 layout_mode = 2

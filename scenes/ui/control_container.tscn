@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg5xnuvmma4hv"]
+
+[ext_resource type="Script" path="res://scripts/ui/control_container.gd" id="1_1gq1b"]
+[ext_resource type="Texture2D" uid="uid://clh7j26viooqq" path="res://DevArt/enviroment/Keycap01.png" id="1_aknet"]
+[ext_resource type="Theme" uid="uid://sskftnklcksg" path="res://assets/themes/default_theme.tres" id="1_jl5vw"]
+
+[node name="ControlContainer" type="HBoxContainer"]
+size_flags_horizontal = 3
+theme = ExtResource("1_jl5vw")
+script = ExtResource("1_1gq1b")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_aknet")
+expand_mode = 2
+
+[node name="IndentationHelper" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = -65
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="KeyLabel" type="Label" parent="IndentationHelper"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+text = "A"
+
+[node name="DescriptionLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Move Left"
