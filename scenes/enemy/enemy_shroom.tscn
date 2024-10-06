@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d1lcam3au7yad"]
 
-[ext_resource type="Script" path="res://scenes/enemy/enemy_shroom.gd" id="1_78ng2"]
+[ext_resource type="Script" path="res://scripts/enemy_shroom.gd" id="1_78ng2"]
 [ext_resource type="Texture2D" uid="uid://ddu2pos4ykach" path="res://DevArt/enemy/EnemyMushroomIdle01.png" id="1_ddtfw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x7tgo"]

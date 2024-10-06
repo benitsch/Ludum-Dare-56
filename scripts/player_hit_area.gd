@@ -1,14 +1,13 @@
 extends Node2D
 
 @export var attack_delay = 0.5
-@export var attack_dmg = 1.0
 
 @onready var animator = $AnimationPlayer
 
 var can_attack = true
 var attack_timeout = 0.0
 var backlash = Vector2(0, 0)
-signal hit_on_enemy(backlash : Vector2, dmg : float)
+signal hit_on_enemy(backlash : Vector2)
 
 func _process(delta):
 	if attack_timeout > 0: attack_timeout -= delta
@@ -38,7 +37,7 @@ func _process(delta):
 	animator.play("fade")
 
 func _on_hit_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Enemy"): hit_on_enemy.emit(backlash, attack_dmg)
+	if body.is_in_group("Enemy"): hit_on_enemy.emit(backlash)
 
 func _on_hit_area_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Enemy"): hit_on_enemy.emit(backlash, attack_dmg)
+	if area.is_in_group("Enemy"): hit_on_enemy.emit(backlash)

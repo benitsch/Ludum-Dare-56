@@ -14,5 +14,5 @@ func _physics_process(delta: float) -> void:
 	if path.progress_ratio == 0 || path.progress_ratio == 1: dir = -dir
 
 
-func _on_child_exiting_tree(node: Node) -> void:
+func _on_child_exiting_tree(_node: Node) -> void:
 	queue_free()

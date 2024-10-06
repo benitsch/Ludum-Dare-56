@@ -111,7 +111,7 @@ func update_animations(direction):
 		else:
 			animated_sprite.play("fall")
 
-func _on_player_hit_area_hit_on_enemy(backlash: Vector2, dmg: float) -> void:
+func _on_player_hit_area_hit_on_enemy(backlash: Vector2) -> void:
 	velocity.y = backlash.y * backlash_force
 	backlash_X_force += backlash.x * backlash_force
 	if backlash_force != 0.0: velocity.x = 0.0
