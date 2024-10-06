@@ -1,17 +1,36 @@
-[gd_scene load_steps=5 format=4 uid="uid://cihoecae3ddlq"]
+[gd_scene load_steps=9 format=4 uid="uid://cihoecae3ddlq"]
 
 [ext_resource type="PackedScene" uid="uid://2ir574xuagab" path="res://scenes/player.tscn" id="1_4710u"]
+[ext_resource type="Texture2D" uid="uid://y6jxe1wflhnl" path="res://DevArt/enviroment/Cloud01.png" id="1_eybm1"]
 [ext_resource type="Texture2D" uid="uid://d1u8wew1kyh2i" path="res://DevArt/Square.png" id="2_7ljt7"]
+[ext_resource type="Texture2D" uid="uid://5sqqx28dx3sh" path="res://DevArt/enviroment/Mountain01.png" id="2_tgiac"]
+[ext_resource type="Texture2D" uid="uid://cvi401dgpta8n" path="res://DevArt/enviroment/Tree01.png" id="3_furs7"]
 [ext_resource type="PackedScene" uid="uid://c6hr8qmchsogj" path="res://scenes/tilemap_layer.tscn" id="3_hmjen"]
+[ext_resource type="Texture2D" uid="uid://cx7pi5dvcpaxt" path="res://DevArt/enviroment/Treetrunk02.png" id="4_di0gy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujbt2"]
 size = Vector2(500, 500.001)
 
 [node name="NataTest" type="Node2D"]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2647, -2803)
+texture = ExtResource("1_eybm1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1676, -2289)
+texture = ExtResource("2_tgiac")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-55, -2226)
+texture = ExtResource("3_furs7")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(2310, -2274)
+texture = ExtResource("4_di0gy")
+
 [node name="Player" parent="." instance=ExtResource("1_4710u")]
 position = Vector2(633, -1734)
-double_jump = true
 
 [node name="testground" type="StaticBody2D" parent="."]
 visible = false

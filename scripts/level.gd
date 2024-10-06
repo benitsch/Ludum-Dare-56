@@ -7,11 +7,9 @@ class_name Level
 
 @onready var death_zone = $DeathZone
 @onready var exit = $Exit
-@onready var hud = $UILayer/HUD
 @onready var player = $Player
 @onready var start = $Start
 @onready var traps = $Traps
-@onready var ui_layer = $UILayer
 
 
 
@@ -59,6 +57,6 @@ func end_level():
 	await get_tree().create_timer(0.5).timeout
 	exit.pause_animate()
 	if is_final_level:
-		ui_layer.show_win_screen(true)
+		get_tree().change_scene_to_file("res://scenes/win_screen.tscn")
 	elif next_level != null:
 		get_tree().change_scene_to_packed(next_level)

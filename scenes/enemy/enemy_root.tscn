@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://b11rw8yl0fr6o"]
+
+[ext_resource type="Script" path="res://scripts/enemy_root.gd" id="1_butc0"]
+[ext_resource type="Texture2D" uid="uid://bsep0xu66hyhw" path="res://DevArt/enemy/EnemyFlowerIdle01.png" id="1_tbj3a"]
+[ext_resource type="Texture2D" uid="uid://djyeur8xb4aqn" path="res://DevArt/enemy/EnemyFlowerIdle02.png" id="2_tfcw5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bs8eg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tbj3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tfcw5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qejrt"]
+radius = 40.1995
+
+[node name="EnemyRoot" type="Node2D" groups=["Enemy"]]
+script = ExtResource("1_butc0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -128)
+sprite_frames = SubResource("SpriteFrames_bs8eg")
+frame_progress = 0.218991
+
+[node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
+position = Vector2(0, -32)
+collision_layer = 32
+collision_mask = 65
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_qejrt")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

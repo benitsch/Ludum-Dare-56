@@ -10,11 +10,13 @@ class_name Player
 @export var double_jump = true
 @export var invincible_time = 1.0
 @export var hp = 3
+@export var start_hp = 3
 @export var start_zoom = 0.5
 @export var zoom_factor = 0.65
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var camera : Camera2D = $Camera2D
+@onready var animator = $AnimationPlayer
 
 var active = true
 var grav_jump_timeout = 0.0
@@ -24,6 +26,7 @@ var backlash_X_force = 0.0
 var coyote_time = 0.0
 var invincible_timeout = 1.0
 var level = null
+var playing_inv_anim = false
 
 func _ready() -> void:
 	SetZoom(start_zoom)
@@ -38,6 +41,10 @@ func SetZoom(zoomLevel : float) -> void:
 	camera.offset = Vector2(0, -500+300*zoomLevel)
 
 func _process(delta: float) -> void:
+	if playing_inv_anim and invincible_time < 0.1:
+		playing_inv_anim = false
+		animator.play("RESET")
+	
 	# camera zoom
 	var zoomChange 
 	if Input.is_action_pressed("ZoomIn"):
@@ -84,11 +91,11 @@ func _process(delta: float) -> void:
 		
 		direction = Input.get_axis("move_left","move_right")
 	
-	velocity.x = direction * speed
 	if backlash_X_force != 0:
-		if (velocity.x < 0.0 && backlash_X_force > 0.0) || (velocity.x > 0.0 && backlash_force < 0.0): 
-			velocity.x = velocity.x * 0.25
-		velocity.x += backlash_X_force
+		velocity.x = backlash_X_force
+	else:
+		velocity.x = direction * speed
+
 	
 	# animation
 	update_animations(direction)
@@ -127,12 +134,22 @@ func update_animations(direction):
 func _on_player_hit_area_hit_on_enemy(backlash: Vector2) -> void:
 	velocity.y = backlash.y * backlash_force
 	backlash_X_force += backlash.x * backlash_force
-	if backlash_force != 0.0: velocity.x = 0.0
 
 func _on_hit_area_area_entered(area: Area2D) -> void:
 	if invincible_timeout > 0.0: return
 	if area.is_in_group("Enemy"):
 		hp -= 1
-		if hp <= 0: level.reset_player()
-		invincible_timeout = invincible_time
+		if hp <= 0: 
+			level.reset_player()
+			reset()
 		
+		var dir = (global_position - area.global_position).normalized()
+		velocity.y = dir.y * backlash_force * 1.5
+		backlash_X_force += dir.x * backlash_force * 4
+		
+		invincible_timeout = invincible_time
+		playing_inv_anim = true
+		animator.play("hit")
+
+func reset():
+	hp = start_hp

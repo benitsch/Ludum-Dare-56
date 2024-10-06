@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://dvucdbx74s272"]
+[gd_scene load_steps=10 format=4 uid="uid://dvucdbx74s272"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_aif6d"]
 [ext_resource type="PackedScene" uid="uid://kenxkeefe6wg" path="res://scenes/levels/level_01.tscn" id="2_7ryw3"]
@@ -6,11 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://7ygroes0fm2u" path="res://scenes/death_zone.tscn" id="4_ioomg"]
 [ext_resource type="PackedScene" uid="uid://ce38etm4w8mqi" path="res://scenes/start.tscn" id="5_hpxtv"]
 [ext_resource type="PackedScene" path="res://scenes/ui/background.tscn" id="6_2dg0u"]
+[ext_resource type="PackedScene" uid="uid://d1lcam3au7yad" path="res://scenes/enemy/enemy_shroom.tscn" id="6_50jsv"]
 [ext_resource type="PackedScene" uid="uid://c6hr8qmchsogj" path="res://scenes/tilemap_layer.tscn" id="7_fcwdq"]
 [ext_resource type="PackedScene" uid="uid://bj0dql25ceqsv" path="res://scenes/exit.tscn" id="10_4h64u"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_aif6d")
+is_final_level = true
 next_level = ExtResource("2_7ryw3")
 
 [node name="Start" parent="." instance=ExtResource("5_hpxtv")]
@@ -26,6 +28,9 @@ position = Vector2(0, 3278)
 [node name="Traps" type="Node2D" parent="."]
 
 [node name="Enemies" type="Node2D" parent="."]
+
+[node name="EnemyShroom" parent="Enemies" instance=ExtResource("6_50jsv")]
+position = Vector2(1249, -311)
 
 [node name="Player" parent="." instance=ExtResource("2_waa0q")]
 position = Vector2(-1147, -1475)

@@ -16,8 +16,9 @@ func _process(delta: float) -> void:
 	
 	attack_timeout = attackspeed
 	var shot : Node2D = shot_scene.instantiate()
-	$".".add_child(shot)
-	shot.look_at(playerNode.global_position)
+	get_node("/root").add_child(shot)
+	shot.global_position = global_position
+	shot.look_at(playerNode.global_position + Vector2(0, -100))
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("PlayerHit"): queue_free()

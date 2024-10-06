@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxpkej6v78axl"]
+[gd_scene load_steps=3 format=3 uid="uid://bxpkej6v78axl"]
 
 [ext_resource type="Script" path="res://scripts/audio_player.gd" id="1_5cco8"]
+[ext_resource type="AudioStream" uid="uid://bkxcytje0enss" path="res://assets/audio/PLACEHOLDER_MENU_Discord_Amongst_Operatives.mp3" id="2_uwt7k"]
 
 [node name="AudioPlayer" type="Node"]
 script = ExtResource("1_5cco8")
+volume = null
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_uwt7k")
 volume_db = -10.0
 autoplay = true

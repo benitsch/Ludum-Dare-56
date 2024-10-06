@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw3e0gh8evqng"]
+[gd_scene load_steps=8 format=3 uid="uid://dw3e0gh8evqng"]
 
 [ext_resource type="PackedScene" uid="uid://2ir574xuagab" path="res://scenes/player.tscn" id="1_efmfr"]
 [ext_resource type="Texture2D" uid="uid://d1u8wew1kyh2i" path="res://DevArt/Square.png" id="2_lggue"]
 [ext_resource type="PackedScene" uid="uid://dvu7khddbfd13" path="res://scenes/enemy/enemy_pathing_shroom.tscn" id="3_ksspt"]
 [ext_resource type="PackedScene" uid="uid://cw46lpr7hxi4o" path="res://scenes/enemy/enemy_acorn.tscn" id="4_f8vi2"]
+[ext_resource type="PackedScene" uid="uid://b11rw8yl0fr6o" path="res://scenes/enemy/enemy_root.tscn" id="5_dl0b4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvb0m"]
 size = Vector2(500, 500.001)
@@ -31,9 +32,37 @@ texture = ExtResource("2_lggue")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="testground"]
 shape = SubResource("RectangleShape2D_cvb0m")
 
+[node name="testground2" type="StaticBody2D" parent="."]
+position = Vector2(-417, 107)
+scale = Vector2(2, 0.110202)
+collision_layer = 2
+collision_mask = 33
+
+[node name="Sprite2D" type="Sprite2D" parent="testground2"]
+texture = ExtResource("2_lggue")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="testground2"]
+shape = SubResource("RectangleShape2D_cvb0m")
+
+[node name="testground3" type="StaticBody2D" parent="."]
+position = Vector2(1573, 102)
+scale = Vector2(2, 0.110202)
+collision_layer = 2
+collision_mask = 33
+
+[node name="Sprite2D" type="Sprite2D" parent="testground3"]
+texture = ExtResource("2_lggue")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="testground3"]
+shape = SubResource("RectangleShape2D_cvb0m")
+
 [node name="EnemyPathing" parent="." instance=ExtResource("3_ksspt")]
 position = Vector2(140, 77)
 curve = SubResource("Curve2D_nmm2c")
 
 [node name="EnemyAcorn" parent="." instance=ExtResource("4_f8vi2")]
-position = Vector2(1390, -471)
+position = Vector2(-469, -411)
+
+[node name="EnemyRoot" parent="." instance=ExtResource("5_dl0b4")]
+position = Vector2(1785, -441)
+rotation = -0.721986
