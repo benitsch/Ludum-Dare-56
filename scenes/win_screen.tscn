@@ -1,11 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://ta0j4ymw57b4"]
+[gd_scene load_steps=9 format=3 uid="uid://cn8fajxmf7gtu"]
 
-[ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_lv6n2"]
+[ext_resource type="Theme" uid="uid://sskftnklcksg" path="res://assets/themes/default_theme.tres" id="1_6f3gn"]
+[ext_resource type="PackedScene" uid="uid://bp0kh61x22hov" path="res://scenes/ui/background.tscn" id="3_bcm1b"]
+[ext_resource type="Script" path="res://scripts/ui/simple_button.gd" id="3_n6wvo"]
+[ext_resource type="Texture2D" uid="uid://bxwrscpuxkpvk" path="res://DevArt/enemy/MagicMushroomDance01.png" id="4_tdftg"]
+[ext_resource type="Texture2D" uid="uid://b1361ahoaxh7i" path="res://DevArt/enemy/MagicMushroomDance02.png" id="5_d2uej"]
+[ext_resource type="Texture2D" uid="uid://dbmcbfw3ndr1n" path="res://DevArt/enemy/MagicMushroomDance03.png" id="6_qda7k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lshsh"]
-font_size = 48
-outline_size = 13
+font_size = 64
+outline_size = 8
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tvj5a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_tdftg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d2uej")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qda7k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
 [node name="WinScreen" type="Control"]
 layout_mode = 3
@@ -14,48 +36,57 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lv6n2")
+theme = ExtResource("1_6f3gn")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" parent="." instance=ExtResource("3_bcm1b")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.490196)
 
-[node name="Win" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -114.0
-offset_top = -72.0
-offset_right = 114.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "YOU WIN"
+
+[node name="Win" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Congratulation!
+You Win :)"
 label_settings = SubResource("LabelSettings_lshsh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -62.0
-offset_top = 9.0
-offset_right = 62.0
-offset_bottom = 41.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 64
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 text = "Main Menu
 "
+script = ExtResource("3_n6wvo")
+targetScenePath = "res://scenes/ui/main_menu.tscn"
+textAlignment = 1
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 128
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer"]
+sprite_frames = SubResource("SpriteFrames_tvj5a")
+autoplay = "default"
+frame = 1
+frame_progress = 0.502647
