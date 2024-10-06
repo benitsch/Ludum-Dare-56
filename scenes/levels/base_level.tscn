@@ -11,7 +11,6 @@
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_aif6d")
-is_final_level = null
 next_level = ExtResource("2_7ryw3")
 
 [node name="Start" parent="." instance=ExtResource("5_hpxtv")]
