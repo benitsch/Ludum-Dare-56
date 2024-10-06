@@ -13,6 +13,7 @@ texture = SubResource("GradientTexture2D_nalsd")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pkpbn"]
 content_margin_left = 64.0
+content_margin_right = 64.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wm16y"]
 content_margin_left = 64.0
@@ -20,6 +21,7 @@ content_margin_right = 64.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hvr8g"]
 content_margin_left = 64.0
+content_margin_right = 64.0
 
 [resource]
 default_font = ExtResource("1_qoii4")
