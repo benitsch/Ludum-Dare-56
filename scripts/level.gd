@@ -21,7 +21,7 @@ func _ready():
 	death_zone.body_entered.connect(_on_death_zone_body_entered)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().change_scene_to_file("res://scenes/start_menu.tscn")
 	elif Input.is_action_just_pressed("reset"):
