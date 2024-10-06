@@ -12,6 +12,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = cos(rotation) * speed
 		velocity.y = sin(rotation) * speed
 	
+	if gravity != 0:
+		if velocity.y < 0: rotation_degrees = 270
+		else: rotation_degrees = 90
+	
 	move_and_slide()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
