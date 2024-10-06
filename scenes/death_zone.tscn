@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://7ygroes0fm2u"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pt7th"]
+
+[node name="DeathZone" type="Area2D"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(231, 336)
+shape = SubResource("WorldBoundaryShape2D_pt7th")
