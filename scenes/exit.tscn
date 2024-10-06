@@ -1,47 +1,33 @@
-[gd_scene load_steps=7 format=3 uid="uid://bj0dql25ceqsv"]
+[gd_scene load_steps=5 format=3 uid="uid://db5psywnxn8a6"]
 
 [ext_resource type="Script" path="res://scripts/exit.gd" id="1_dxtdd"]
-[ext_resource type="Texture2D" uid="uid://d0j7wh1ypwuro" path="res://DevArt/enviroment/End (Idle).png" id="1_lgaak"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u0n3s"]
-atlas = ExtResource("1_lgaak")
-region = Rect2(0, 0, 64, 64)
+[ext_resource type="Texture2D" uid="uid://d0bw0vymsofi3" path="res://DevArt/enviroment/Exit.png" id="2_wjr6j"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kyadm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u0n3s")
+"texture": ExtResource("2_wjr6j")
 }],
 "loop": true,
 "name": &"default",
 "speed": 20.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g1cnw"]
-radius = 16.0312
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcdfw"]
-size = Vector2(34, 8)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rp3jp"]
+radius = 17.0
+height = 308.0
 
 [node name="Exit" type="Area2D"]
 light_mask = 0
-scale = Vector2(4, 4)
 collision_layer = 16
 script = ExtResource("1_dxtdd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -32)
+position = Vector2(-80, -180)
 sprite_frames = SubResource("SpriteFrames_kyadm")
 frame_progress = 0.692351
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -16)
-shape = SubResource("CircleShape2D_g1cnw")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_tcdfw")
+position = Vector2(0, -140)
+shape = SubResource("CapsuleShape2D_rp3jp")

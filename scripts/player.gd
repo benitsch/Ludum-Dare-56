@@ -26,7 +26,6 @@ var backlash_X_force = 0.0
 var coyote_time = 0.0
 var invincible_timeout = 1.0
 var level = null
-var playing_inv_anim = false
 
 func _ready() -> void:
 	SetZoom(start_zoom)
@@ -40,11 +39,7 @@ func SetZoom(zoomLevel : float) -> void:
 	camera.set_zoom(Vector2(zoomLevel, zoomLevel))
 	camera.offset = Vector2(0, -500+300*zoomLevel)
 
-func _process(delta: float) -> void:
-	if playing_inv_anim and invincible_time < 0.1:
-		playing_inv_anim = false
-		animator.play("RESET")
-	
+func _process(delta: float) -> void:	
 	# camera zoom
 	var zoomChange 
 	if Input.is_action_pressed("ZoomIn"):
@@ -95,7 +90,6 @@ func _process(delta: float) -> void:
 		velocity.x = backlash_X_force
 	else:
 		velocity.x = direction * speed
-
 	
 	# animation
 	update_animations(direction)
@@ -139,19 +133,21 @@ func _on_player_hit_area_hit_on_enemy(backlash: Vector2) -> void:
 
 func _on_hit_area_area_entered(area: Area2D) -> void:
 	if invincible_timeout > 0.0: return
-	if area.is_in_group("Enemy"):
-		hp -= 1
-		if hp <= 0: 
-			level.reset_player()
-			reset()
-		
-		var dir = (global_position - area.global_position).normalized()
-		velocity.y = dir.y * backlash_force * 1.5
-		backlash_X_force += dir.x * backlash_force * 4
-		
-		invincible_timeout = invincible_time
-		playing_inv_anim = true
-		animator.play("hit")
+	if !area.is_in_group("Enemy"): return
+	
+	hp -= 1
+	if hp <= 0: 
+		level.reset_player()
+		reset()
+	
+	var dir = (global_position - area.global_position).normalized()
+	velocity.y = dir.y * backlash_force * 1.5
+	backlash_X_force += dir.x * backlash_force * 4
+	
+	invincible_timeout = invincible_time
+	animator.play("hit")
+	animator.advance(0)
 
 func reset():
+	velocity = Vector2.ZERO
 	hp = start_hp

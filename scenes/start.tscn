@@ -1,40 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce38etm4w8mqi"]
+[gd_scene load_steps=5 format=3 uid="uid://ce38etm4w8mqi"]
 
 [ext_resource type="Script" path="res://scripts/start.gd" id="1_k43jk"]
 [ext_resource type="Texture2D" uid="uid://c5dv2mgoc3k1t" path="res://DevArt/enviroment/Start.png" id="2_chhgu"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ty4t8"]
-atlas = ExtResource("2_chhgu")
-region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3xupa"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ty4t8")
+"texture": ExtResource("2_chhgu")
 }],
 "loop": true,
 "name": &"default",
-"speed": 20.0
+"speed": 1.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfn30"]
-size = Vector2(34, 8)
+size = Vector2(131, 12)
 
 [node name="Start" type="StaticBody2D"]
-scale = Vector2(4, 4)
 collision_layer = 2
 script = ExtResource("1_k43jk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -32)
+position = Vector2(-145, -84)
 sprite_frames = SubResource("SpriteFrames_3xupa")
 autoplay = "default"
 frame_progress = 0.521183
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(11, -4)
+position = Vector2(1.5, -6)
 shape = SubResource("RectangleShape2D_sfn30")
 
 [node name="SpawnPosition" type="Marker2D" parent="."]
-position = Vector2(11, -30)
+position = Vector2(0, -30)
