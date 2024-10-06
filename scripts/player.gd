@@ -2,16 +2,16 @@ extends CharacterBody2D
 class_name Player
 
 @export var gravity = 3000
-@export var jump_force = 800
-@export var backlash_force = 750
-@export var double_jump_force = 700
 @export var speed = 700
+@export var jump_force = 800
 @export var grav_jump_delay = 0.25
+@export var double_jump_force = 1200
+@export var backlash_force = 750
 @export var double_jump = true
-@export var zoom_factor = 0.65
 @export var invincible_time = 1.0
 @export var hp = 3
 @export var start_zoom = 0.5
+@export var zoom_factor = 0.65
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var camera : Camera2D = $Camera2D
@@ -23,9 +23,15 @@ var allowed_to_double_jump = false
 var backlash_X_force = 0.0
 var coyote_time = 0.0
 var invincible_timeout = 1.0
+var level = null
 
 func _ready() -> void:
 	SetZoom(start_zoom)
+	var nodes = get_node('/root').get_children()
+	
+	for node in nodes:
+		if node is Level:
+			level = node
 
 func SetZoom(zoomLevel : float) -> void:	
 	camera.set_zoom(Vector2(zoomLevel, zoomLevel))
@@ -127,6 +133,6 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 	if invincible_timeout > 0.0: return
 	if area.is_in_group("Enemy"):
 		hp -= 1
-		if hp <= 0: queue_free()
+		if hp <= 0: level.reset_player()
 		invincible_timeout = invincible_time
 		

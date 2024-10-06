@@ -1,4 +1,6 @@
 extends Node2D
+class_name Level
+
 
 @export var is_final_level: bool = false
 @export var next_level: PackedScene = null
