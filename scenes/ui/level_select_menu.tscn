@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://ch6ngt47ojjyx"]
+[gd_scene load_steps=6 format=3 uid="uid://ch6ngt47ojjyx"]
 
 [ext_resource type="PackedScene" uid="uid://bp0kh61x22hov" path="res://scenes/ui/background.tscn" id="1_ng67u"]
+[ext_resource type="Theme" uid="uid://sskftnklcksg" path="res://assets/themes/default_theme.tres" id="1_upemk"]
 [ext_resource type="PackedScene" uid="uid://bhy6v7h1w250f" path="res://scenes/ui/back_button.tscn" id="2_jxpcs"]
+[ext_resource type="Script" path="res://scripts/ui/level_select_button.gd" id="4_0e4kc"]
+[ext_resource type="Theme" uid="uid://bpiv3xaellyar" path="res://assets/themes/level_select_theme.tres" id="4_xg2pg"]
 
 [node name="LevelSelectMenu" type="Control"]
 layout_mode = 3
@@ -10,14 +13,53 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_upemk")
 
 [node name="Background" parent="." instance=ExtResource("1_ng67u")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[node name="BackButton" parent="." instance=ExtResource("2_jxpcs")]
 layout_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 32
+
+[node name="Title" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+text = "Level Select"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 122
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
+columns = 4
+
+[node name="LevelSelectButton" type="Button" parent="VBoxContainer/MarginContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("4_xg2pg")
+text = "1"
+script = ExtResource("4_0e4kc")
+levelNumber = 1
+
+[node name="BackButton" parent="VBoxContainer" instance=ExtResource("2_jxpcs")]
+layout_mode = 2
