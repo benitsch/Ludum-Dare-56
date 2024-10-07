@@ -17,5 +17,4 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_child_exiting_tree(_node: Node) -> void:
-	AudioPlayer.play_sfx("enemy_hit")
 	queue_free()
