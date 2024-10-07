@@ -149,5 +149,6 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 	animator.advance(0)
 
 func reset():
+	backlash_X_force = 0
 	velocity = Vector2.ZERO
 	hp = start_hp
