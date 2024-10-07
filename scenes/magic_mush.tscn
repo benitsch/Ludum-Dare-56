@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c365sl7fdwnnc"]
+[gd_scene load_steps=5 format=3 uid="uid://yeyy6e3fpc23"]
 
 [ext_resource type="Texture2D" uid="uid://bxwrscpuxkpvk" path="res://DevArt/enemy/MagicMushroomDance01.png" id="1_yuj50"]
 [ext_resource type="Texture2D" uid="uid://b1361ahoaxh7i" path="res://DevArt/enemy/MagicMushroomDance02.png" id="2_4s6yo"]
@@ -25,4 +25,5 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hqmrg")
+autoplay = "default"
 frame_progress = 0.649628
