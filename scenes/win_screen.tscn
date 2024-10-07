@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cn8fajxmf7gtu"]
+[gd_scene load_steps=7 format=3 uid="uid://cn8fajxmf7gtu"]
 
 [ext_resource type="Theme" uid="uid://sskftnklcksg" path="res://assets/themes/default_theme.tres" id="1_6f3gn"]
-[ext_resource type="PackedScene" uid="uid://bp0kh61x22hov" path="res://scenes/ui/background.tscn" id="3_bcm1b"]
+[ext_resource type="Script" path="res://scripts/win_screen.gd" id="2_i07l1"]
+[ext_resource type="PackedScene" path="res://scenes/ui/background.tscn" id="3_bcm1b"]
 [ext_resource type="Script" path="res://scripts/ui/simple_button.gd" id="3_n6wvo"]
 [ext_resource type="PackedScene" uid="uid://yeyy6e3fpc23" path="res://scenes/magic_mush.tscn" id="4_u5l85"]
 
@@ -18,6 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_6f3gn")
+script = ExtResource("2_i07l1")
 
 [node name="Background" parent="." instance=ExtResource("3_bcm1b")]
 layout_mode = 1

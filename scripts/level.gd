@@ -13,13 +13,16 @@ func _ready():
 	reset_player(true)
 	connect_traps()
 	
+	# Set correct BG Music
+	AudioPlayer.change_music(AudioPlayer.SCENE_SET.LEVEL)
+	
 	exit.body_entered.connect(_on_exit_body_entered)
 	death_zone.body_entered.connect(_on_death_zone_body_entered)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Input.is_action_just_pressed("quit"):
-		get_tree().change_scene_to_file("res://scenes/start_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 	elif Input.is_action_just_pressed("reset"):
 		get_tree().reload_current_scene()
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://ciq4m7ci7otje"]
 
 [ext_resource type="Theme" uid="uid://sskftnklcksg" path="res://assets/themes/default_theme.tres" id="1_fxoss"]
-[ext_resource type="PackedScene" uid="uid://bp0kh61x22hov" path="res://scenes/ui/background.tscn" id="2_btxxp"]
+[ext_resource type="PackedScene" path="res://scenes/ui/background.tscn" id="2_btxxp"]
 [ext_resource type="Script" path="res://scripts/ui/volume_slider.gd" id="3_wf1lt"]
-[ext_resource type="PackedScene" uid="uid://bhy6v7h1w250f" path="res://scenes/ui/back_button.tscn" id="4_ev2s6"]
+[ext_resource type="PackedScene" uid="uid://bijijcxsfa1r3" path="res://scenes/ui/back_button.tscn" id="4_ev2s6"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
