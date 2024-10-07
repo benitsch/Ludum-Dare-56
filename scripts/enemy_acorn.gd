@@ -21,7 +21,9 @@ func _process(delta: float) -> void:
 	shot.look_at(playerNode.global_position + Vector2(0, -100))
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group("PlayerHit"): queue_free()
+	if area.is_in_group("PlayerHit"): 
+		AudioPlayer.play_sfx("enemy_hit")
+		queue_free()
 
 func _on_attack_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"): playerNode = body

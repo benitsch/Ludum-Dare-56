@@ -9,4 +9,6 @@ func _ready() -> void:
 	else: animator.play("default")
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group("PlayerHit"): queue_free()
+	if area.is_in_group("PlayerHit"): 
+		AudioPlayer.play_sfx("enemy_hit")
+		queue_free()
