@@ -13,6 +13,7 @@ config_version=5
 config/name="Tinies Reaper - LD56"
 run/main_scene="res://scenes/ui/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/image="res://DevArt/screenshots and covers/cover.jpeg"
 config/icon="res://DevArt/player/PlayerIdle01.png"
 
 [autoload]
