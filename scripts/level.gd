@@ -10,7 +10,7 @@ class_name Level
 @onready var traps = $Traps
 
 func _ready():
-	reset_player(true)
+	reset_player()
 	connect_traps()
 	
 	# Set correct BG Music
@@ -33,8 +33,7 @@ func _on_death_zone_body_entered(body):
 func _on_trap_touched_player():
 	reset_player()
 
-func reset_player(first_reset:bool = false):
-	if !first_reset: AudioPlayer.play_sfx("hurt")
+func reset_player():
 	player.set_global_position(start.get_spawn_pos())
 	player.set_velocity(Vector2.ZERO)
 

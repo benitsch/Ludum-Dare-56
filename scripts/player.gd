@@ -145,6 +145,7 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 	backlash_X_force += dir.x * backlash_force * 4
 	
 	invincible_timeout = invincible_time
+	AudioPlayer.play_sfx("hurt")
 	animator.play("hit")
 	animator.advance(0)
 

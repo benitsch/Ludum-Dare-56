@@ -35,6 +35,8 @@ func _process(delta):
 	can_attack = false
 	attack_timeout = attack_delay
 	animator.play("fade")
+	AudioPlayer.play_sfx("attack")
+
 
 func _on_hit_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy"): hit_on_enemy.emit(backlash)
