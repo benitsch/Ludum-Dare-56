@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bdruugw1803ct"]
+[gd_scene load_steps=20 format=4 uid="uid://bdruugw1803ct"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ityhs"]
 [ext_resource type="Texture2D" uid="uid://dvdpx3lu5elwq" path="res://DevArt/enviroment/IngameBackground01.jpg" id="2_y5tls"]
@@ -21,6 +21,13 @@ _data = {
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_22ui4"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -2, 0, 0, 0, 0, 200, -2)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ck4bf"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, -2, 0, 0, 0, 0, 200, -2)
@@ -229,7 +236,7 @@ curve = SubResource("Curve2D_22ui4")
 
 [node name="EnemyPathing2" parent="Enemies" instance=ExtResource("9_n2fuw")]
 position = Vector2(265, -3547)
-curve = SubResource("Curve2D_22ui4")
+curve = SubResource("Curve2D_ck4bf")
 startPos = 1.0
 
 [node name="EnemyPathing3" parent="Enemies" instance=ExtResource("9_n2fuw")]

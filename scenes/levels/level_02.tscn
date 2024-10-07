@@ -1,11 +1,12 @@
-[gd_scene load_steps=15 format=4 uid="uid://kq4s56lt78m2"]
+[gd_scene load_steps=16 format=4 uid="uid://kq4s56lt78m2"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_6ahfv"]
 [ext_resource type="PackedScene" uid="uid://ce38etm4w8mqi" path="res://scenes/start.tscn" id="2_p8r7d"]
 [ext_resource type="PackedScene" uid="uid://caveuqugfhufn" path="res://scenes/levels/level_03.tscn" id="2_ukc5a"]
 [ext_resource type="Texture2D" uid="uid://dvdpx3lu5elwq" path="res://DevArt/enviroment/IngameBackground01.jpg" id="3_uvnv4"]
-[ext_resource type="PackedScene" path="res://scenes/death_zone.tscn" id="3_vq4q2"]
+[ext_resource type="PackedScene" uid="uid://7ygroes0fm2u" path="res://scenes/death_zone.tscn" id="3_vq4q2"]
 [ext_resource type="PackedScene" uid="uid://dvu7khddbfd13" path="res://scenes/enemy/enemy_pathing_shroom.tscn" id="5_4rxwx"]
+[ext_resource type="Texture2D" uid="uid://gefa51gamv48" path="res://DevArt/enviroment/SignInfoAttack01.png" id="6_hj5ue"]
 [ext_resource type="PackedScene" uid="uid://cw46lpr7hxi4o" path="res://scenes/enemy/enemy_acorn.tscn" id="6_nnkd1"]
 [ext_resource type="PackedScene" uid="uid://2ir574xuagab" path="res://scenes/player.tscn" id="6_w6kmo"]
 [ext_resource type="PackedScene" uid="uid://db5psywnxn8a6" path="res://scenes/exit.tscn" id="7_xrn0c"]
@@ -176,6 +177,10 @@ position = Vector2(-1660, 36)
 position = Vector2(-10, 1212)
 
 [node name="Objects" type="Node2D" parent="."]
+
+[node name="SignInfoAttack01" type="Sprite2D" parent="Objects"]
+position = Vector2(-798, -180)
+texture = ExtResource("6_hj5ue")
 
 [node name="Traps" type="Node2D" parent="."]
 

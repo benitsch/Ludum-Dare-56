@@ -1,12 +1,15 @@
-[gd_scene load_steps=12 format=4 uid="uid://kenxkeefe6wg"]
+[gd_scene load_steps=15 format=4 uid="uid://kenxkeefe6wg"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_eiaxq"]
 [ext_resource type="PackedScene" uid="uid://kq4s56lt78m2" path="res://scenes/levels/level_02.tscn" id="2_nq305"]
 [ext_resource type="PackedScene" uid="uid://ce38etm4w8mqi" path="res://scenes/start.tscn" id="3_a10k4"]
-[ext_resource type="PackedScene" path="res://scenes/death_zone.tscn" id="4_1c56r"]
+[ext_resource type="PackedScene" uid="uid://7ygroes0fm2u" path="res://scenes/death_zone.tscn" id="4_1c56r"]
 [ext_resource type="Texture2D" uid="uid://dvdpx3lu5elwq" path="res://DevArt/enviroment/IngameBackground01.jpg" id="4_h7eiy"]
 [ext_resource type="PackedScene" uid="uid://c6hr8qmchsogj" path="res://scenes/tilemap_layer.tscn" id="5_de2yp"]
+[ext_resource type="Texture2D" uid="uid://dmyyf7uavnf08" path="res://DevArt/enviroment/SignInfoZoom01.png" id="6_5o0o4"]
+[ext_resource type="Texture2D" uid="uid://dfr1ctt3cunrr" path="res://DevArt/enviroment/SignInfoMove01.png" id="7_evf8a"]
 [ext_resource type="PackedScene" uid="uid://2ir574xuagab" path="res://scenes/player.tscn" id="7_jfix5"]
+[ext_resource type="Texture2D" uid="uid://blnpgk78cuqmp" path="res://DevArt/enviroment/SignInfoJump01.png" id="8_1luns"]
 [ext_resource type="PackedScene" uid="uid://db5psywnxn8a6" path="res://scenes/exit.tscn" id="8_yp7ol"]
 [ext_resource type="Texture2D" uid="uid://donfrdihpabyx" path="res://DevArt/Tileset01.png" id="9_rvgv0"]
 
@@ -162,12 +165,24 @@ region_enabled = true
 region_rect = Rect2(0, 0, 6000, 3240)
 
 [node name="Start" parent="." instance=ExtResource("3_a10k4")]
-position = Vector2(-109, 39)
+position = Vector2(-194, 48)
 
 [node name="DeathZone" parent="." instance=ExtResource("4_1c56r")]
 position = Vector2(-2, 1385)
 
 [node name="Objects" type="Node2D" parent="."]
+
+[node name="SignInfoZoom01" type="Sprite2D" parent="Objects"]
+position = Vector2(-212, -175)
+texture = ExtResource("6_5o0o4")
+
+[node name="SignInfoMove01" type="Sprite2D" parent="Objects"]
+position = Vector2(867, -178)
+texture = ExtResource("7_evf8a")
+
+[node name="SignInfoJump01" type="Sprite2D" parent="Objects"]
+position = Vector2(1814, 584)
+texture = ExtResource("8_1luns")
 
 [node name="Traps" type="Node2D" parent="."]
 
