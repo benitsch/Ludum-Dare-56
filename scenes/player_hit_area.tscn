@@ -252,6 +252,7 @@ animations = [{
 }]
 
 [node name="PlayerHitArea" type="Node2D"]
+top_level = true
 script = ExtResource("1_caph2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
