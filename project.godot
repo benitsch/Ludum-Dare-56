@@ -98,6 +98,7 @@ ZoomOut={
 2d_physics/layer_5="exit_area"
 2d_physics/layer_6="enemy"
 2d_physics/layer_7="Player Hit Area"
+2d_physics/layer_8="projectiles"
 
 [rendering]
 

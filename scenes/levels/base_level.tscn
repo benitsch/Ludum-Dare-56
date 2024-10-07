@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_aif6d"]
 [ext_resource type="Texture2D" uid="uid://dvdpx3lu5elwq" path="res://DevArt/enviroment/IngameBackground01.jpg" id="2_7e6uv"]
 [ext_resource type="PackedScene" uid="uid://2ir574xuagab" path="res://scenes/player.tscn" id="2_waa0q"]
-[ext_resource type="PackedScene" path="res://scenes/death_zone.tscn" id="4_ioomg"]
+[ext_resource type="PackedScene" uid="uid://7ygroes0fm2u" path="res://scenes/death_zone.tscn" id="4_ioomg"]
 [ext_resource type="PackedScene" uid="uid://ce38etm4w8mqi" path="res://scenes/start.tscn" id="5_hpxtv"]
 [ext_resource type="PackedScene" uid="uid://qvbbbabgwgmq" path="res://scenes/enemy/enemy_root.tscn" id="5_wvwg3"]
 [ext_resource type="PackedScene" uid="uid://lv1lypey5irv" path="res://scenes/enemy/enemy_flying_acorn.tscn" id="6_vv2f7"]
@@ -177,10 +177,10 @@ position = Vector2(0, 3278)
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="EnemyRoot" parent="Enemies" instance=ExtResource("5_wvwg3")]
-position = Vector2(674, -239)
+position = Vector2(677, -341)
 
 [node name="EnemyFlying" parent="Enemies" instance=ExtResource("6_vv2f7")]
-position = Vector2(678, -676)
+position = Vector2(-2027, -620)
 curve = SubResource("Curve2D_vwfx3")
 
 [node name="Player" parent="." instance=ExtResource("2_waa0q")]
