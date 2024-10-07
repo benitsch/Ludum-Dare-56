@@ -1,20 +1,21 @@
-[gd_scene load_steps=19 format=4 uid="uid://c7req83npduab"]
+[gd_scene load_steps=20 format=4 uid="uid://c7req83npduab"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ko1s5"]
+[ext_resource type="PackedScene" uid="uid://bdruugw1803ct" path="res://scenes/levels/level_09.tscn" id="2_1cus4"]
 [ext_resource type="Texture2D" uid="uid://dvdpx3lu5elwq" path="res://DevArt/enviroment/IngameBackground01.jpg" id="2_ch242"]
 [ext_resource type="PackedScene" uid="uid://ce38etm4w8mqi" path="res://scenes/start.tscn" id="3_wj3ef"]
-[ext_resource type="PackedScene" path="res://scenes/death_zone.tscn" id="4_xgqgg"]
+[ext_resource type="PackedScene" uid="uid://7ygroes0fm2u" path="res://scenes/death_zone.tscn" id="4_xgqgg"]
 [ext_resource type="PackedScene" uid="uid://2ir574xuagab" path="res://scenes/player.tscn" id="5_8xwiq"]
 [ext_resource type="Texture2D" uid="uid://cx7pi5dvcpaxt" path="res://DevArt/enviroment/Treetrunk02.png" id="5_40cch"]
 [ext_resource type="Texture2D" uid="uid://coxa1pytgpbua" path="res://DevArt/enviroment/Sign04.png" id="6_lm6dc"]
 [ext_resource type="PackedScene" uid="uid://db5psywnxn8a6" path="res://scenes/exit.tscn" id="6_urbcq"]
-[ext_resource type="PackedScene" path="res://scenes/enemy/enemy_flying_acorn.tscn" id="7_1l7a2"]
+[ext_resource type="PackedScene" uid="uid://lv1lypey5irv" path="res://scenes/enemy/enemy_flying_acorn.tscn" id="7_1l7a2"]
 [ext_resource type="PackedScene" uid="uid://d1lcam3au7yad" path="res://scenes/enemy/enemy_shroom.tscn" id="7_2jmak"]
 [ext_resource type="PackedScene" uid="uid://yeyy6e3fpc23" path="res://scenes/magic_mush.tscn" id="7_etbnf"]
 [ext_resource type="PackedScene" uid="uid://c6hr8qmchsogj" path="res://scenes/tilemap_layer.tscn" id="7_olocc"]
 [ext_resource type="Texture2D" uid="uid://donfrdihpabyx" path="res://DevArt/Tileset01.png" id="8_g4h68"]
 [ext_resource type="PackedScene" uid="uid://cw46lpr7hxi4o" path="res://scenes/enemy/enemy_acorn.tscn" id="8_lf40r"]
-[ext_resource type="PackedScene" path="res://scenes/enemy/enemy_root.tscn" id="10_87ov5"]
+[ext_resource type="PackedScene" uid="uid://qvbbbabgwgmq" path="res://scenes/enemy/enemy_root.tscn" id="10_87ov5"]
 
 [sub_resource type="Curve2D" id="Curve2D_cqgww"]
 _data = {
@@ -161,6 +162,7 @@ sources/0 = SubResource("TileSetAtlasSource_b8aji")
 [node name="Level" type="Node2D"]
 position = Vector2(-3, -3)
 script = ExtResource("1_ko1s5")
+next_level = ExtResource("2_1cus4")
 
 [node name="Background" type="Sprite2D" parent="."]
 show_behind_parent = true

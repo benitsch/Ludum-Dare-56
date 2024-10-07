@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var attack_delay = 3.0
-@export var start_delay = -1
+@export var start_delay = -1.0
 
 var shot_scene = preload("res://scenes/enemy/enemy_shot.tscn")
 
