@@ -17,7 +17,7 @@ func buildText() -> void:
 	addUser('Martin', 'Programming, Level Design', 'prepe')
 	addUser('Nata', 'Programming, Level Design', 'krisss-gonko')
 	addUser('Stephie', 'Animation, Art', 'kyunru')
-	addUser('Tine', 'Programming, UI', 'mireyu')
+	addUser('Tine', 'Programming, UI, Level Design', 'mireyu')
 	addLine()
 	addUrl('https://github.com/benitsch/Ludum-Dare-56', 'Github')
 	self.text += ', '
